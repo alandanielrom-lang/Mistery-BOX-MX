@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Mystery Box MX</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f0f1a;
+  color: white;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: #111;
+}
+
+nav h1 {
+  color: #ff9800;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #1e1e2f, #3a3a6a);
+}
+
+.hero h2 {
+  font-size: 40px;
+}
+
+.hero p {
+  opacity: 0.7;
+}
+
+/* PRODUCTOS */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 40px;
+  gap: 25px;
+}
+
+.card {
+  background: #1c1c2e;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.card h3 {
+  margin: 15px 0;
+}
+
+.card p {
+  opacity: 0.8;
+}
+
+.card button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #ff9800;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  margin-top: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h1>🎁 Mystery Box MX</h1>
+  <div>
+    <a href="#">Inicio</a>
+    <a href="#">Productos</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h2>Descubre tu suerte 🎡</h2>
+  <p>No sabes qué te tocará… pero siempre ganas</p>
+</section>
+
+<section class="products">
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300x200">
+    <h3>Mystery Box Dulces 🍬</h3>
+    <p>Llena de sorpresas dulces irresistibles</p>
+    <p><strong>$80 MXN</strong></p>
+    <button onclick="comprarWhatsApp('Mystery Box Dulces 🍬')">Comprar</button>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300x200">
+    <h3>Mystery Box Gamer 🎮</h3>
+    <p>Ideal para fans del gaming</p>
+    <p><strong>$100 MXN</strong></p>
+    <button onclick="comprarWhatsApp('Mystery Box Gamer 🎮')">Comprar</button>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300x200">
+    <h3>Mystery Box Basket 🏀</h3>
+    <p>Para amantes del básquet</p>
+    <p><strong>$90 MXN</strong></p>
+    <button onclick="comprarWhatsApp('Mystery Box Basket 🏀')">Comprar</button>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Mystery Box MX | Tu suerte, tu premio 🎁
+</footer>
+
+<script>
+function comprarWhatsApp(producto) {
+  let numero = "+52 271 238 7123"; // 🔴 CAMBIA ESTE POR TU NUMERO
+
+  let mensaje = "Hola, quiero comprar: " + producto + " 🎁";
+
+  let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
