@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Productos - Mystery Box</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0a0a12;
+  color: white;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: #111;
+}
+
+nav h1 {
+  color: #ff9800;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+/* HERO */
+.hero {
+  height: 60vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url('fondopp1.png') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 50px;
+}
+
+/* SECCIONES */
+.section {
+  padding: 80px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.section img {
+  width: 50%;
+  border-radius: 20px;
+}
+
+.text {
+  width: 50%;
+}
+
+.text h3 {
+  font-size: 35px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 40px;
+}
+
+.card {
+  background: #121222;
+  padding: 20px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff9800;
+}
+
+.card button {
+  margin-top: 10px;
+  padding: 10px;
+  background: #ff9800;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h1>MYSTERY BOX</h1>
+  <div>
+    <a href="index.html">Inicio</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h2>Explora nuestras categorías</h2>
+</section>
+
+<!-- DULCES -->
+<section class="section">
+  <img src="fondopp2.png">
+  <div class="text">
+    <h3>Cajas de Dulces</h3>
+    <p>
+      Selección de cajas con dulces clásicos, extremos y combinaciones.
+      Incluye versiones dulces y picantes.
+    </p>
+    <button onclick="window.location.href='dulces.html'">
+      Ver opciones
+    </button>
+  </div>
+</section>
+
+<!-- GAMER -->
+<section class="section">
+  <div class="text">
+    <h3>Cajas Gamer</h3>
+    <p>
+      Cajas con contenido digital, accesorios y sorpresas
+      relacionadas con videojuegos.
+    </p>
+    <button onclick="window.location.href='gamer.html'">
+      Ver opciones
+    </button>
+  </div>
+  <img src="fondopp3.png">
+</section>
+
+<!-- BASKET -->
+<section class="section">
+  <img src="fondopp1.png">
+  <div class="text">
+    <h3>Cajas Basket</h3>
+    <p>
+      Artículos deportivos y accesorios relacionados
+      con el mundo del baloncesto.
+    </p>
+    <button onclick="window.location.href='basket.html'">
+      Ver opciones
+    </button>
+  </div>
+</section>
+
+<!-- EXTRA -->
+<section class="grid">
+
+  <div class="card">
+    <h3>Dulces Picantes</h3>
+    <p>Experiencia intensa</p>
+    <button onclick="window.location.href='dulces.html'">Entrar</button>
+  </div>
+
+  <div class="card">
+    <h3>Dulces Clásicos</h3>
+    <p>Opciones tradicionales</p>
+    <button onclick="window.location.href='dulces.html'">Entrar</button>
+  </div>
+
+  <div class="card">
+    <h3>Premium Gamer</h3>
+    <p>Mayor valor</p>
+    <button onclick="window.location.href='gamer.html'">Entrar</button>
+  </div>
+
+</section>
+
+</body>
+</html>
