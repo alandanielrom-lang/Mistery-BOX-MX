@@ -7,94 +7,122 @@
 <style>
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #0f0f1a;
+  font-family: 'Poppins', sans-serif;
+  background: #0a0a12;
   color: white;
 }
 
-/* NAVBAR */
+/* NAV */
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 15px 30px;
-  background: #111;
+  padding: 20px 40px;
+  background: rgba(0,0,0,0.8);
+  position: sticky;
+  top: 0;
 }
 
 nav h1 {
   color: #ff9800;
+  letter-spacing: 2px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  margin-left: 20px;
+  margin-left: 25px;
 }
 
 /* HERO */
 .hero {
   height: 90vh;
-  background: url('fondopp1.png') center/cover no-repeat;
+  background:
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url('fondopp1.png') center/cover no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.hero img {
-  width: 150px;
-  margin-bottom: 20px;
+  padding: 0 80px;
 }
 
 .hero h2 {
-  font-size: 50px;
+  font-size: 60px;
+  max-width: 600px;
+  text-shadow: 0 0 20px #ff9800;
 }
 
 .hero p {
-  opacity: 0.8;
   max-width: 500px;
-}
-
-.hero button {
-  padding: 15px 30px;
-  margin-top: 20px;
-  border: none;
-  border-radius: 10px;
-  background: #ff9800;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-/* INFO */
-.info {
-  padding: 50px 20px;
-  text-align: center;
-}
-
-.info h2 {
-  margin-bottom: 20px;
-}
-
-.info p {
-  max-width: 600px;
-  margin: auto;
   opacity: 0.7;
 }
 
-/* PREVIEW */
-.preview {
+.hero button {
+  width: 200px;
+  margin-top: 20px;
+  padding: 15px;
+  background: #ff9800;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero button:hover {
+  transform: scale(1.1);
+}
+
+/* SECCIONES */
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px;
+  gap: 40px;
+}
+
+.section img {
+  width: 45%;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.section img:hover {
+  transform: scale(1.05);
+}
+
+.text {
+  width: 50%;
+}
+
+.text h3 {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.text p {
+  opacity: 0.7;
+}
+
+/* PRODUCTOS */
+.products {
+  padding: 80px;
+  text-align: center;
+}
+
+.products h2 {
+  margin-bottom: 40px;
+}
+
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  padding: 40px;
-  gap: 20px;
+  gap: 30px;
 }
 
 .card {
-  background: #1c1c2e;
-  border-radius: 20px;
+  background: #121222;
   padding: 20px;
-  text-align: center;
+  border-radius: 20px;
   transition: 0.3s;
 }
 
@@ -103,25 +131,19 @@ nav a {
   box-shadow: 0 0 20px #ff9800;
 }
 
-.card img {
-  width: 100%;
-  border-radius: 15px;
-}
-
 .card button {
-  padding: 10px 20px;
   margin-top: 10px;
-  border: none;
-  border-radius: 10px;
+  padding: 10px;
   background: #ff9800;
+  border: none;
   color: white;
   cursor: pointer;
 }
 
 /* FOOTER */
 footer {
+  padding: 30px;
   text-align: center;
-  padding: 20px;
   background: #111;
 }
 
@@ -133,9 +155,8 @@ footer {
   background: #25D366;
   padding: 15px;
   border-radius: 50%;
-  text-decoration: none;
   color: white;
-  font-size: 20px;
+  text-decoration: none;
 }
 </style>
 </head>
@@ -143,7 +164,7 @@ footer {
 <body>
 
 <nav>
-  <h1>🎁 Mystery Box MX</h1>
+  <h1>MYSTERY BOX</h1>
   <div>
     <a href="#">Inicio</a>
     <a href="productos.html">Productos</a>
@@ -151,49 +172,80 @@ footer {
 </nav>
 
 <section class="hero">
-  <img src="https://via.placeholder.com/150" alt="logo">
-  <h2>Descubre tu suerte 🎡</h2>
-  <p>No sabes qué te tocará… pero siempre ganas</p>
-  <button onclick="window.location.href='productos.html'">Ver Productos</button>
-</section>
-
-<section class="info">
-  <h2>¿Qué es Mystery Box?</h2>
+  <h2>Descubre lo desconocido</h2>
   <p>
-    Mystery Box MX es una experiencia única donde compras una caja sorpresa 
-    sin saber exactamente qué contiene. Cada caja incluye productos reales 
-    con valor garantizado. ¡La emoción está en descubrir tu premio!
+    Una experiencia donde no eliges el producto… eliges la emoción.
+    Cada caja es una sorpresa real con valor garantizado.
   </p>
+  <button onclick="window.location.href='productos.html'">
+    Explorar
+  </button>
 </section>
 
-<section class="preview">
-
-  <div class="card">
-    <img src="https://via.placeholder.com/300x200">
-    <h3>Dulces 🍬</h3>
-    <button onclick="window.location.href='dulces.html'">Explorar</button>
+<!-- QUE HACEMOS -->
+<section class="section">
+  <div class="text">
+    <h3>¿Qué hacemos?</h3>
+    <p>
+      Creamos experiencias sorpresa mediante cajas temáticas.
+      Cada compra activa un sistema aleatorio que define tu premio,
+      combinando incertidumbre con valor real.
+    </p>
   </div>
+  <img src="https://via.placeholder.com/500x300">
+</section>
 
-  <div class="card">
-    <img src="https://via.placeholder.com/300x200">
-    <h3>Gamer 🎮</h3>
-    <button onclick="window.location.href='gamer.html'">Explorar</button>
+<!-- QUE VENDEMOS -->
+<section class="section">
+  <img src="https://via.placeholder.com/500x300">
+  <div class="text">
+    <h3>¿Qué vendemos?</h3>
+    <p>
+      Cajas especializadas en diferentes categorías: dulces,
+      gaming y deporte. Cada una contiene múltiples variantes
+      que se asignan mediante un sistema de selección aleatoria.
+    </p>
   </div>
+</section>
 
-  <div class="card">
-    <img src="https://via.placeholder.com/300x200">
-    <h3>Basket 🏀</h3>
-    <button onclick="window.location.href='basket.html'">Explorar</button>
+<!-- PRODUCTOS -->
+<section class="products">
+  <h2>Categorías</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Dulces</h3>
+      <p>Opciones dulces y picantes</p>
+      <button onclick="window.location.href='dulces.html'">
+        Entrar
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>Gamer</h3>
+      <p>Accesorios y códigos</p>
+      <button onclick="window.location.href='gamer.html'">
+        Entrar
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>Basket</h3>
+      <p>Artículos deportivos</p>
+      <button onclick="window.location.href='basket.html'">
+        Entrar
+      </button>
+    </div>
+
   </div>
-
 </section>
 
 <footer>
-  © 2026 Mystery Box MX | Tu suerte, tu premio 🎁
+  2026 Mystery Box MX — Todos los derechos reservados
 </footer>
 
-<!-- BOTÓN WHATSAPP -->
-<a href="https://wa.me/5212712387123" target="_blank" class="whatsapp">💬</a>
+<a href="https://wa.me/5212712387123" class="whatsapp">W</a>
 
 </body>
 </html>
