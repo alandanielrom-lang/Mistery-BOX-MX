@@ -147,11 +147,11 @@ footer {
 
 <script>
 function comprarWhatsApp(producto) {
-  let numero = "522712387123"; // 🔴 CAMBIA ESTE POR TU NUMERO
+  const numero = "5212712387123";
 
-  let mensaje = "Hola, quiero comprar: " + producto + " 🎁";
+  const mensaje = `Hola, quiero comprar: ${producto} 🎁`;
 
-  let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
   window.open(url, "_blank");
 }
