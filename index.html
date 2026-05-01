@@ -12,7 +12,7 @@ body {
   color: white;
 }
 
-/* NAV */
+/* NAVBAR */
 nav {
   display: flex;
   justify-content: space-between;
@@ -32,25 +32,62 @@ nav a {
 
 /* HERO */
 .hero {
+  height: 90vh;
+  background: url('https://via.placeholder.com/1200x600') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 60px 20px;
-  background: linear-gradient(135deg, #1e1e2f, #3a3a6a);
+}
+
+.hero img {
+  width: 150px;
+  margin-bottom: 20px;
 }
 
 .hero h2 {
-  font-size: 40px;
+  font-size: 50px;
 }
 
 .hero p {
+  opacity: 0.8;
+  max-width: 500px;
+}
+
+.hero button {
+  padding: 15px 30px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  background: #ff9800;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* INFO */
+.info {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.info h2 {
+  margin-bottom: 20px;
+}
+
+.info p {
+  max-width: 600px;
+  margin: auto;
   opacity: 0.7;
 }
 
-/* PRODUCTOS */
-.products {
+/* PREVIEW */
+.preview {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   padding: 40px;
-  gap: 25px;
+  gap: 20px;
 }
 
 .card {
@@ -63,6 +100,7 @@ nav a {
 
 .card:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 20px #ff9800;
 }
 
 .card img {
@@ -70,22 +108,14 @@ nav a {
   border-radius: 15px;
 }
 
-.card h3 {
-  margin: 15px 0;
-}
-
-.card p {
-  opacity: 0.8;
-}
-
 .card button {
   padding: 10px 20px;
+  margin-top: 10px;
   border: none;
   border-radius: 10px;
   background: #ff9800;
   color: white;
   cursor: pointer;
-  margin-top: 10px;
 }
 
 /* FOOTER */
@@ -93,7 +123,19 @@ footer {
   text-align: center;
   padding: 20px;
   background: #111;
-  margin-top: 40px;
+}
+
+/* WHATSAPP */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  padding: 15px;
+  border-radius: 50%;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
 }
 </style>
 </head>
@@ -104,39 +146,44 @@ footer {
   <h1>🎁 Mystery Box MX</h1>
   <div>
     <a href="#">Inicio</a>
-    <a href="#">Productos</a>
+    <a href="productos.html">Productos</a>
   </div>
 </nav>
 
 <section class="hero">
+  <img src="https://via.placeholder.com/150" alt="logo">
   <h2>Descubre tu suerte 🎡</h2>
   <p>No sabes qué te tocará… pero siempre ganas</p>
+  <button onclick="window.location.href='productos.html'">Ver Productos</button>
 </section>
 
-<section class="products">
+<section class="info">
+  <h2>¿Qué es Mystery Box?</h2>
+  <p>
+    Mystery Box MX es una experiencia única donde compras una caja sorpresa 
+    sin saber exactamente qué contiene. Cada caja incluye productos reales 
+    con valor garantizado. ¡La emoción está en descubrir tu premio!
+  </p>
+</section>
+
+<section class="preview">
 
   <div class="card">
     <img src="https://via.placeholder.com/300x200">
-    <h3>Mystery Box Dulces 🍬</h3>
-    <p>Llena de sorpresas dulces irresistibles</p>
-    <p><strong>$80 MXN</strong></p>
-    <button onclick="comprarWhatsApp('Mystery Box Dulces 🍬')">Comprar</button>
+    <h3>Dulces 🍬</h3>
+    <button onclick="window.location.href='dulces.html'">Explorar</button>
   </div>
 
   <div class="card">
     <img src="https://via.placeholder.com/300x200">
-    <h3>Mystery Box Gamer 🎮</h3>
-    <p>Ideal para fans del gaming</p>
-    <p><strong>$100 MXN</strong></p>
-    <button onclick="comprarWhatsApp('Mystery Box Gamer 🎮')">Comprar</button>
+    <h3>Gamer 🎮</h3>
+    <button onclick="window.location.href='gamer.html'">Explorar</button>
   </div>
 
   <div class="card">
     <img src="https://via.placeholder.com/300x200">
-    <h3>Mystery Box Basket 🏀</h3>
-    <p>Para amantes del básquet</p>
-    <p><strong>$90 MXN</strong></p>
-    <button onclick="comprarWhatsApp('Mystery Box Basket 🏀')">Comprar</button>
+    <h3>Basket 🏀</h3>
+    <button onclick="window.location.href='basket.html'">Explorar</button>
   </div>
 
 </section>
@@ -145,17 +192,8 @@ footer {
   © 2026 Mystery Box MX | Tu suerte, tu premio 🎁
 </footer>
 
-<script>
-function comprarWhatsApp(producto) {
-  const numero = "5212712387123";
-
-  const mensaje = `Hola, quiero comprar: ${producto} 🎁`;
-
-  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-
-  window.open(url, "_blank");
-}
-</script>
+<!-- BOTÓN WHATSAPP -->
+<a href="https://wa.me/5212712387123" target="_blank" class="whatsapp">💬</a>
 
 </body>
 </html>
