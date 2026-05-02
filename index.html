@@ -27,10 +27,20 @@ nav h1 {
   letter-spacing: 2px;
 }
 
+/* 🔥 BOTONES NAV MEJORADOS */
 nav a {
   color: white;
   text-decoration: none;
   margin-left: 25px;
+  padding: 8px 15px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background: rgba(255,152,0,0.1);
+  box-shadow: 0 0 10px #ff9800, 0 0 20px rgba(255,152,0,0.5);
+  transform: scale(1.05);
 }
 
 /* HERO */
@@ -69,6 +79,7 @@ nav a {
 
 .hero button:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 15px #ff9800;
 }
 
 /* SECCIONES */
@@ -101,34 +112,47 @@ nav a {
 
 .text p {
   opacity: 0.7;
+  text-align: justify;
 }
 
-/* PRODUCTOS */
-.products {
-  padding: 80px;
-  text-align: center;
-}
-
-.products h2 {
-  margin-bottom: 40px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+/* 🔥 PREVIEW CORREGIDO */
+.preview {
+  display: flex;
+  justify-content: center;
   gap: 30px;
+  padding: 80px;
+  flex-wrap: wrap;
 }
 
 .card {
+  width: 280px;
   background: #121222;
-  padding: 20px;
+  padding: 15px;
   border-radius: 20px;
+  text-align: center;
   transition: 0.3s;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.08);
 }
 
 .card:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px #ff9800;
+}
+
+.card h3 {
+  margin-top: 15px;
 }
 
 .card button {
@@ -138,6 +162,12 @@ nav a {
   border: none;
   color: white;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.card button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #ff9800;
 }
 
 /* FOOTER */
@@ -188,8 +218,7 @@ footer {
     <h3>¿Qué hacemos?</h3>
     <p>
       Nos dedicamos a crear experiencias que van más allá de lo convencional. No solo ofrecemos productos, diseñamos momentos únicos pensados para sorprender, intrigar y generar emoción desde el primer instante. Cada detalle está cuidadosamente seleccionado para despertar la curiosidad y mantener viva la expectativa, convirtiendo lo simple en algo extraordinario.
-      <br>
-      <br>
+      <br><br>
       Nuestro objetivo es transformar lo cotidiano en una experiencia envolvente, donde cada elección tiene un propósito y cada elemento cuenta una historia. Trabajamos con una visión clara: ofrecer algo diferente, algo que no se encuentra fácilmente, algo que deje huella. Aquí no solo eliges un producto, entras en un concepto donde el misterio y la calidad se combinan para crear algo realmente especial.
     </p>
   </div>
@@ -203,17 +232,15 @@ footer {
     <h3>¿Qué vendemos?</h3>
     <p>
       Ofrecemos cajas temáticas diseñadas para distintos gustos, intereses y estilos de vida. Dentro de cada una encontrarás una selección cuidadosamente elegida de artículos que pueden ir desde tarjetas digitales, productos exclusivos, hasta sorpresas relacionadas con entretenimiento, deporte o cultura.
-      <br>
-      <br>
+      <br><br>
       Cada caja es una incógnita hasta el momento de abrirla, lo que convierte la compra en una experiencia emocionante. No sabes exactamente qué recibirás, pero sí sabes que será algo pensado para sorprenderte. Nuestro catálogo no se limita a un solo tipo de contenido; evoluciona constantemente para mantenerse fresco, relevante y atractivo.
-      <br>
-      <br>
+      <br><br>
       Vendemos más que productos: vendemos expectativa, emoción y la sensación de descubrir algo nuevo en cada entrega.
     </p>
   </div>
 </section>
 
-<!-- PRODUCTOS -->
+<!-- 🔥 CATEGORÍAS -->
 <section class="preview">
 
   <div class="card">
