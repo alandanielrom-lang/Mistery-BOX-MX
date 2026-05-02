@@ -17,11 +17,12 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 20px 40px;
-  background: #111;
+  background: rgba(0,0,0,0.8);
 }
 
 nav h1 {
   color: #ff9800;
+  letter-spacing: 2px;
 }
 
 nav a {
@@ -35,7 +36,7 @@ nav a {
   height: 60vh;
   background:
     linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    url('fondopp1.png') center/cover no-repeat;
+    url('fondopp4.png') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,19 +45,28 @@ nav a {
 
 .hero h2 {
   font-size: 50px;
+  text-shadow: 0 0 20px #ff9800;
 }
 
 /* SECCIONES */
 .section {
-  padding: 80px;
   display: flex;
-  gap: 40px;
   align-items: center;
+  justify-content: space-between;
+  padding: 80px;
+  gap: 40px;
 }
 
 .section img {
-  width: 50%;
+  width: 45%;
   border-radius: 20px;
+  transition: 0.3s;
+  filter: brightness(0.85);
+}
+
+.section img:hover {
+  transform: scale(1.05);
+  filter: brightness(1);
 }
 
 .text {
@@ -65,9 +75,31 @@ nav a {
 
 .text h3 {
   font-size: 35px;
+  margin-bottom: 15px;
 }
 
-/* GRID */
+.text p {
+  opacity: 0.7;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.text button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: linear-gradient(45deg, #ff9800, #ff5722);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.text button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #ff9800;
+}
+
+/* GRID EXTRA */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -115,7 +147,7 @@ nav a {
 <section class="section">
   <div class="text">
     <h3>Cajas Gamer</h3>
-    <p style="text-align: justify; line-height: 1.6;">
+    <p>
 La Mystery Box gamer está pensada para quienes buscan una experiencia vinculada al entorno digital 
 y al entretenimiento interactivo. Cada caja contiene elementos seleccionados dentro del mundo gaming, 
 que pueden variar entre accesorios, contenido digital o artículos temáticos.<br><br>
@@ -125,9 +157,8 @@ haciendo que cada compra se convierta en una experiencia distinta. Esto permite 
 de interés y expectativa en cada apertura.<br><br>
 
 Más allá del contenido físico, esta categoría busca conectar con la emoción de lo desconocido, integrando 
-la sorpresa como parte central del proceso. Cada caja representa una combinación única que refuerza la 
-sensación de exclusividad y descubrimiento.
-</p>
+la sorpresa como parte central del proceso.
+    </p>
     <button onclick="window.location.href='gamer.html'">
       Ver opciones
     </button>
@@ -140,47 +171,39 @@ sensación de exclusividad y descubrimiento.
   <img src="cajad1.png">
   <div class="text">
     <h3>Cajas de Dulces</h3>
-    <p style="text-align: justify; line-height: 1.6;">
+    <p>
 La Mystery Box de dulces está diseñada para ofrecer una experiencia impredecible y envolvente. 
 Cada caja reúne una selección cuidadosamente elegida de productos que combinan sabores, intensidades 
-y sensaciones distintas, creando una experiencia que va más allá de lo convencional.<br><br>
+y sensaciones distintas.<br><br>
 
-Dentro de esta categoría existen múltiples variantes, desde opciones con perfiles suaves y tradicionales 
-hasta combinaciones más intensas que incluyen contrastes entre lo dulce y lo picante. 
-Cada selección responde a un sistema aleatorio que garantiza que ninguna experiencia sea igual a la anterior.<br><br>
+Existen múltiples variantes, desde opciones suaves y tradicionales hasta combinaciones intensas con 
+contrastes entre lo dulce y lo picante. Cada selección responde a un sistema aleatorio único.<br><br>
 
-El objetivo no es solo consumir, sino descubrir. Cada caja representa una oportunidad de experimentar algo 
-diferente, donde el contenido se mantiene en secreto hasta el momento de abrirla, generando expectativa 
-y aumentando el valor percibido de cada entrega.
-</p>
+El objetivo no es solo consumir, sino descubrir, generando expectativa en cada apertura.
+    </p>
     <button onclick="window.location.href='dulces.html'">
       Ver opciones
     </button>
   </div>
 </section>
-  
+
 <!-- BASKET -->
 <section class="section">
-  <img src="cajab1.png">
   <div class="text">
     <h3>Cajas Basket</h3>
-    <p style="text-align: justify; line-height: 1.6;">
+    <p>
 La Mystery Box basket está orientada a quienes se identifican con el estilo y la cultura del baloncesto. 
-Cada caja incluye elementos relacionados con este entorno, que pueden ir desde accesorios hasta objetos 
-representativos del deporte.<br><br>
+Cada caja incluye elementos relacionados con este entorno.<br><br>
 
-Cada selección se realiza mediante un sistema aleatorio que determina el contenido final, asegurando que 
-cada usuario reciba una combinación diferente. Este enfoque permite mantener la emoción y el interés en 
-cada adquisición.<br><br>
+Cada selección se realiza mediante un sistema aleatorio que garantiza una experiencia distinta en cada compra.<br><br>
 
-Más allá del producto, la propuesta busca transmitir una experiencia vinculada al dinamismo, la identidad 
-y la sorpresa. Cada caja funciona como una representación de este concepto, donde el contenido se revela 
-únicamente al momento de abrirla.
-</p>
+Más allá del producto, se busca transmitir dinamismo, identidad y sorpresa en cada entrega.
+    </p>
     <button onclick="window.location.href='basket.html'">
       Ver opciones
     </button>
   </div>
+  <img src="cajab1.png">
 </section>
 
 <!-- EXTRA -->
