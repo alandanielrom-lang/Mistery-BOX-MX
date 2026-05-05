@@ -21,6 +21,12 @@ nav {
 nav a {
   color: white;
   text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #ff9800;
 }
 
 /* HERO */
@@ -39,11 +45,12 @@ nav a {
   text-shadow: 0 0 20px #ff9800;
 }
 
-/* SECCIONES */
+/* CONTENEDOR */
 .container {
   padding: 60px;
 }
 
+/* CAJAS */
 .box {
   display: flex;
   align-items: center;
@@ -52,17 +59,60 @@ nav a {
   background: #121222;
   padding: 30px;
   border-radius: 20px;
+  transition: 0.3s;
+}
+
+.box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px #ff9800;
 }
 
 .box img {
   width: 40%;
   border-radius: 20px;
+  filter: brightness(0.85);
+  transition: 0.3s;
+}
+
+.box img:hover {
+  transform: scale(1.05);
+  filter: brightness(1);
+}
+
+.text {
+  width: 60%;
+}
+
+.text h2 {
+  font-size: 28px;
+}
+
+.text p {
+  opacity: 0.7;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* BOTONES */
+button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  background: linear-gradient(45deg, #ff9800, #ff5722);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 15px #ff9800;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px #ff9800;
 }
 
 /* BLOQUEADO */
 .locked {
   opacity: 0.4;
-  pointer-events: none;
   position: relative;
 }
 
@@ -77,37 +127,9 @@ nav a {
   border-radius: 10px;
 }
 
-/* BOTONES */
-button {
-  margin-top: 15px;
-  padding: 12px 25px;
-  background: linear-gradient(45deg, #ff9800, #ff5722);
-  border: none;
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 0 15px #ff9800;
-}
-
-button:hover {
-  transform: scale(1.1);
-}
-
-/* RULETA */
-.ruleta {
-  margin-top: 20px;
-  width: 150px;
-  height: 150px;
-  border: 5px solid #ff9800;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 2s ease-out;
-}
-
-.resultado {
-  margin-top: 10px;
-  color: #ff9800;
+/* EVITA CLIC */
+.no-click {
+  pointer-events: none;
 }
 </style>
 </head>
@@ -127,33 +149,43 @@ button:hover {
   <!-- CLÁSICOS -->
   <div class="box">
     <img src="cajad1.png">
-    <div>
+    <div class="text">
       <h2>Dulces Clásicos</h2>
-      <p>Sabores tradicionales con sorpresa.</p>
+      <p>
+        Selección enfocada en sabores tradicionales con una experiencia de sorpresa.
+        Cada caja se asigna mediante un sistema aleatorio para garantizar una experiencia única.
+      </p>
 
-      <button onclick="girarRuleta(this)">Girar ruleta</button>
-
-      <div class="ruleta">🎡</div>
-      <div class="resultado"></div>
+      <button onclick="window.location.href='ruleta-dulces.html'">
+        Ir a ruleta
+      </button>
     </div>
   </div>
 
   <!-- PICANTES -->
-  <div class="box locked" onclick="proximamente()">
+  <div class="box locked no-click" onclick="proximamente()">
     <img src="cajad1.png">
-    <div>
+    <div class="text">
       <h2>Dulces Picantes</h2>
-      <p>Experiencia intensa.</p>
+      <p>
+        Combinaciones intensas que integran sabores dulces con niveles de picante.
+        Esta categoría se encuentra actualmente en desarrollo.
+      </p>
+
       <button>Próximamente</button>
     </div>
   </div>
 
   <!-- MIXTOS -->
-  <div class="box locked" onclick="proximamente()">
+  <div class="box locked no-click" onclick="proximamente()">
     <img src="cajad1.png">
-    <div>
+    <div class="text">
       <h2>Mixtos</h2>
-      <p>Combinación completa.</p>
+      <p>
+        Mezcla de perfiles dulces y picantes en una sola experiencia.
+        Disponible próximamente.
+      </p>
+
       <button>Próximamente</button>
     </div>
   </div>
@@ -161,28 +193,6 @@ button:hover {
 </div>
 
 <script>
-function girarRuleta(boton) {
-  const contenedor = boton.parentElement;
-  const ruleta = contenedor.querySelector(".ruleta");
-  const resultadoDiv = contenedor.querySelector(".resultado");
-
-  if (resultadoDiv.innerHTML !== "") return;
-
-  const giro = Math.floor(Math.random() * 3600) + 720;
-  ruleta.style.transform = "rotate(" + giro + "deg)";
-
-  setTimeout(() => {
-    const numero = Math.floor(Math.random() * 5) + 1;
-    const resultado = "Caja " + numero;
-
-    resultadoDiv.innerHTML = resultado;
-
-    const mensaje = `Hola, quiero la ${resultado} de Dulces Clásicos`;
-    window.open(`https://wa.me/5212712387123?text=${encodeURIComponent(mensaje)}`);
-
-  }, 2000);
-}
-
 function proximamente() {
   alert("Esta categoría estará disponible próximamente.");
 }
