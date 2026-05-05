@@ -10,22 +10,57 @@ body {
   font-family: 'Poppins', sans-serif;
   background: #0a0a12;
   color: white;
-  text-align: center;
 }
 
 /* NAV */
 nav {
-  padding: 20px;
+  padding: 20px 40px;
 }
 
 nav a {
-  color: white;
   text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #ff9800, #ff5722);
+  box-shadow: 0 0 15px #ff9800;
+  transition: 0.3s;
 }
 
-/* CONTENEDOR */
-.container {
-  margin-top: 40px;
+nav a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px #ff9800;
+}
+
+/* LAYOUT */
+.main {
+  display: flex;
+  min-height: 90vh;
+  padding: 40px;
+  gap: 40px;
+}
+
+/* IZQUIERDA */
+.info {
+  width: 50%;
+}
+
+.info h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.info p {
+  opacity: 0.7;
+  line-height: 1.7;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+/* DERECHA */
+.ruleta-area {
+  width: 50%;
+  text-align: center;
 }
 
 /* RULETA */
@@ -45,12 +80,11 @@ nav a {
   transition: transform 4s ease-out;
 }
 
-/* SECCIONES */
+/* SECTORES */
 .sector {
   position: absolute;
   width: 50%;
   height: 50%;
-  background: #111;
   transform-origin: 100% 100%;
   display: flex;
   align-items: center;
@@ -62,7 +96,6 @@ nav a {
   font-size: 14px;
 }
 
-/* COLORES alternos */
 .s1 { transform: rotate(0deg) skewY(-30deg); background:#111;}
 .s2 { transform: rotate(72deg) skewY(-30deg); background:#222;}
 .s3 { transform: rotate(144deg) skewY(-30deg); background:#111;}
@@ -79,6 +112,16 @@ nav a {
   color: #ff9800;
 }
 
+/* INPUT */
+input {
+  margin-top: 20px;
+  padding: 12px;
+  width: 250px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+}
+
 /* BOTÓN */
 button {
   margin-top: 20px;
@@ -93,16 +136,7 @@ button {
 
 button:hover {
   transform: scale(1.1);
-}
-
-/* INPUT */
-input {
-  margin-top: 20px;
-  padding: 10px;
-  width: 250px;
-  border: none;
-  border-radius: 10px;
-  text-align: center;
+  box-shadow: 0 0 40px #ff9800;
 }
 
 /* RESULTADO */
@@ -120,31 +154,61 @@ input {
   <a href="dulces.html">← Regresar</a>
 </nav>
 
-<div class="container">
+<div class="main">
 
-  <h1>Gira la ruleta</h1>
+  <!-- IZQUIERDA -->
+  <div class="info">
 
-  <div class="ruleta-container">
-    <div class="flecha">▼</div>
+    <h1>¿Cómo funciona?</h1>
 
-    <div class="ruleta" id="ruleta">
+    <p>
+    Cada caja dentro del sistema está identificada por un número del 1 al 5. 
+    Sin embargo, el contenido específico de cada número se mantiene completamente en secreto.
+    Esto garantiza que cada selección sea una experiencia basada en el misterio y la sorpresa.
+    </p>
 
-      <div class="sector s1"><span>Caja 1</span></div>
-      <div class="sector s2"><span>Caja 2</span></div>
-      <div class="sector s3"><span>Caja 3</span></div>
-      <div class="sector s4"><span>Caja 4</span></div>
-      <div class="sector s5"><span>Caja 5</span></div>
+    <p>
+    El usuario no tiene acceso a conocer qué contiene cada caja antes de obtener su resultado,
+    lo cual evita cualquier tipo de preferencia o manipulación en la elección.
+    De esta manera, el proceso se mantiene justo, aleatorio y emocionante.
+    </p>
 
-    </div>
+    <p>
+    Para utilizar la ruleta, simplemente ingresa tu nombre y presiona el botón de girar.
+    El sistema asignará automáticamente una caja mediante un proceso visual animado.
+    </p>
+
+    <p>
+    Una vez que la ruleta se detenga, podrás visualizar tu resultado.
+    Después de eso, podrás enviar tu pedido directamente por WhatsApp para coordinar la entrega.
+    </p>
+
   </div>
 
-  <input type="text" id="nombre" placeholder="Escribe tu nombre">
+  <!-- DERECHA -->
+  <div class="ruleta-area">
 
-  <br>
+    <div class="ruleta-container">
+      <div class="flecha">▼</div>
 
-  <button id="boton" onclick="girar()">Girar</button>
+      <div class="ruleta" id="ruleta">
+        <div class="sector s1"><span>Caja 1</span></div>
+        <div class="sector s2"><span>Caja 2</span></div>
+        <div class="sector s3"><span>Caja 3</span></div>
+        <div class="sector s4"><span>Caja 4</span></div>
+        <div class="sector s5"><span>Caja 5</span></div>
+      </div>
+    </div>
 
-  <div class="resultado" id="resultado"></div>
+    <input type="text" id="nombre" placeholder="Escribe tu nombre">
+
+    <br>
+
+    <button id="boton" onclick="girar()">Girar</button>
+
+    <div class="resultado" id="resultado"></div>
+
+  </div>
 
 </div>
 
@@ -178,7 +242,7 @@ function girar() {
 function enviar() {
   const nombre = document.getElementById("nombre").value || "Cliente";
 
-  const mensaje = `Hola, soy ${nombre}. 
+  const mensaje = `Hola, soy ${nombre}.
 Quiero la ${resultadoFinal} de Dulces Clásicos.
 Quiero acordar el lugar de entrega.`;
 
