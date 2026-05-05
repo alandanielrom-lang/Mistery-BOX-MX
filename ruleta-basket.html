@@ -17,17 +17,20 @@ nav {
   padding: 20px 40px;
 }
 
-nav a {
+/* BOTÓN REGRESAR */
+nav button {
   text-decoration: none;
   color: white;
   padding: 10px 20px;
   border-radius: 10px;
   background: linear-gradient(45deg, #ff9800, #ff5722);
   box-shadow: 0 0 15px #ff9800;
+  border: none;
+  cursor: pointer;
   transition: 0.3s;
 }
 
-nav a:hover {
+nav button:hover {
   transform: scale(1.1);
   box-shadow: 0 0 30px #ff9800;
 }
@@ -177,7 +180,9 @@ button:hover {
 <body>
 
 <nav>
-  <a href="productos.html">← Regresar</a>
+  <button onclick="window.location.href='productos.html'">
+    ← Regresar
+  </button>
 </nav>
 
 <div class="main">
@@ -242,21 +247,12 @@ para coordinar la entrega.
 <h2>Artículos disponibles</h2>
 
 <div class="grid">
-
 <div class="item"><img src="basket1.png"><p>Artículo 1</p></div>
 <div class="item"><img src="basket2.png"><p>Artículo 2</p></div>
 <div class="item"><img src="basket3.png"><p>Artículo 3</p></div>
 <div class="item"><img src="basket4.png"><p>Artículo 4</p></div>
-<div class="item"><img src="basket5.png"><p>Artículo 5</p></div>
-<div class="item"><img src="basket6.png"><p>Artículo 6</p></div>
-<div class="item"><img src="basket7.png"><p>Artículo 7</p></div>
-<div class="item"><img src="basket8.png"><p>Artículo 8</p></div>
-<div class="item"><img src="basket9.png"><p>Artículo 9</p></div>
-<div class="item"><img src="basket10.png"><p>Artículo 10</p></div>
-<div class="item"><img src="basket11.png"><p>Artículo 11</p></div>
-<div class="item"><img src="basket12.png"><p>Artículo 12</p></div>
-
 </div>
+
 </section>
 
 <script>
