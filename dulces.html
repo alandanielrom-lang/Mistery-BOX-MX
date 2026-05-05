@@ -21,11 +21,6 @@ nav {
 nav a {
   color: white;
   text-decoration: none;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  color: #ff9800;
 }
 
 /* HERO */
@@ -57,34 +52,29 @@ nav a:hover {
   background: #121222;
   padding: 30px;
   border-radius: 20px;
-  transition: 0.3s;
-}
-
-.box:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 20px #ff9800;
 }
 
 .box img {
   width: 40%;
   border-radius: 20px;
-  transition: 0.3s;
-  filter: brightness(0.85);
 }
 
-.box img:hover {
-  transform: scale(1.05);
-  filter: brightness(1);
+/* BLOQUEADO */
+.locked {
+  opacity: 0.4;
+  pointer-events: none;
+  position: relative;
 }
 
-.text {
-  width: 60%;
-}
-
-.text p {
-  opacity: 0.7;
-  line-height: 1.6;
-  text-align: justify;
+.locked::after {
+  content: "PRÓXIMAMENTE";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #ff9800;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 10px;
 }
 
 /* BOTONES */
@@ -95,28 +85,29 @@ button {
   border: none;
   color: white;
   cursor: pointer;
-  transition: 0.3s;
   box-shadow: 0 0 15px #ff9800;
 }
 
 button:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 30px #ff9800;
 }
 
-/* RESULTADO */
+/* RULETA */
+.ruleta {
+  margin-top: 20px;
+  width: 150px;
+  height: 150px;
+  border: 5px solid #ff9800;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 2s ease-out;
+}
+
 .resultado {
-  margin-top: 15px;
+  margin-top: 10px;
   color: #ff9800;
-  font-weight: bold;
-}
-
-/* MINI SECCIONES */
-.detalle {
-  margin-bottom: 80px;
-  background: #121222;
-  padding: 40px;
-  border-radius: 20px;
 }
 </style>
 </head>
@@ -136,98 +127,64 @@ button:hover {
   <!-- CLÁSICOS -->
   <div class="box">
     <img src="cajad1.png">
-    <div class="text">
+    <div>
       <h2>Dulces Clásicos</h2>
-      <p>Sabores tradicionales con un toque de sorpresa.</p>
-      <button onclick="generarCaja('Dulces Clásicos', this)">Obtener caja</button>
+      <p>Sabores tradicionales con sorpresa.</p>
+
+      <button onclick="girarRuleta(this)">Girar ruleta</button>
+
+      <div class="ruleta">🎡</div>
       <div class="resultado"></div>
     </div>
   </div>
 
   <!-- PICANTES -->
-  <div class="box">
+  <div class="box locked" onclick="proximamente()">
     <img src="cajad1.png">
-    <div class="text">
+    <div>
       <h2>Dulces Picantes</h2>
-      <p>Experiencia intensa con combinaciones más extremas.</p>
-      <button onclick="generarCaja('Dulces Picantes', this)">Obtener caja</button>
-      <div class="resultado"></div>
+      <p>Experiencia intensa.</p>
+      <button>Próximamente</button>
     </div>
   </div>
 
   <!-- MIXTOS -->
-  <div class="box">
+  <div class="box locked" onclick="proximamente()">
     <img src="cajad1.png">
-    <div class="text">
+    <div>
       <h2>Mixtos</h2>
-      <p>Variedad completa en una sola caja.</p>
-      <button onclick="generarCaja('Mixtos', this)">Obtener caja</button>
-      <div class="resultado"></div>
+      <p>Combinación completa.</p>
+      <button>Próximamente</button>
     </div>
   </div>
 
 </div>
 
-<!-- DETALLES -->
-<section style="padding:60px;">
-
-  <div class="detalle">
-    <h2>Dulces Clásicos - Detalle</h2>
-    <p>Experiencia equilibrada con productos tradicionales.</p>
-    <p>(Aquí irá la lista de dulces)</p>
-    <button onclick="ruletaFinal('Dulces Clásicos', this)">Generar caja</button>
-    <div class="resultado"></div>
-  </div>
-
-  <div class="detalle">
-    <h2>Dulces Picantes</h2>
-    <p>En desarrollo.</p>
-    <h3 style="color:#ff9800;">Próximamente</h3>
-  </div>
-
-  <div class="detalle">
-    <h2>Mixtos</h2>
-    <p>En desarrollo.</p>
-    <h3 style="color:#ff9800;">Próximamente</h3>
-  </div>
-
-</section>
-
 <script>
-function generarCaja(tipo, boton) {
-  const contenedor = boton.nextElementSibling;
+function girarRuleta(boton) {
+  const contenedor = boton.parentElement;
+  const ruleta = contenedor.querySelector(".ruleta");
+  const resultadoDiv = contenedor.querySelector(".resultado");
 
-  if (contenedor.innerHTML !== "") return;
+  if (resultadoDiv.innerHTML !== "") return;
 
-  contenedor.innerHTML = "Asignando...";
+  const giro = Math.floor(Math.random() * 3600) + 720;
+  ruleta.style.transform = "rotate(" + giro + "deg)";
 
   setTimeout(() => {
     const numero = Math.floor(Math.random() * 5) + 1;
     const resultado = "Caja " + numero;
 
-    contenedor.innerHTML = "Resultado: " + resultado;
+    resultadoDiv.innerHTML = resultado;
 
-    const mensaje = `Hola, quiero la ${resultado} de ${tipo}`;
+    const mensaje = `Hola, quiero la ${resultado} de Dulces Clásicos`;
     window.open(`https://wa.me/5212712387123?text=${encodeURIComponent(mensaje)}`);
-  }, 1500);
+
+  }, 2000);
 }
 
-function ruletaFinal(tipo, boton) {
-  const contenedor = boton.nextElementSibling;
-
-  if (contenedor.innerHTML !== "") return;
-
-  contenedor.innerHTML = "Procesando...";
-
-  setTimeout(() => {
-    const numero = Math.floor(Math.random() * 5) + 1;
-    const resultado = "Caja " + numero;
-
-    contenedor.innerHTML = "Asignado: " + resultado;
-
-    const mensaje = `Hola, quiero la ${resultado} de ${tipo}`;
-    window.open(`https://wa.me/5212712387123?text=${encodeURIComponent(mensaje)}`);
-  }, 1500);
+function proximamente() {
+  alert("Esta categoría estará disponible próximamente.");
 }
 </script>
 
