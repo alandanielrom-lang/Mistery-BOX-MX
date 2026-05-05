@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Dulces - Mystery Box</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0a0a12;
+  color: white;
+}
+
+/* HERO */
+.hero {
+  height: 60vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url('fondopp4.png') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 50px;
+}
+
+/* SECCIONES */
+.container {
+  padding: 60px;
+}
+
+.box {
+  margin-bottom: 60px;
+  padding: 30px;
+  background: #121222;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px #ff9800;
+}
+
+.box h2 {
+  font-size: 30px;
+}
+
+.box p {
+  opacity: 0.7;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+/* BOTÓN */
+button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: linear-gradient(45deg, #ff9800, #ff5722);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #ff9800;
+}
+
+/* RESULTADO */
+.resultado {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #ff9800;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <h1>Cajas de Dulces</h1>
+</section>
+
+<div class="container">
+
+  <!-- DULCES CLÁSICOS -->
+  <div class="box">
+    <h2>Dulces Clásicos</h2>
+    <p>
+    Selección enfocada en sabores tradicionales y equilibrados. 
+    Ideal para quienes buscan una experiencia más suave pero igualmente impredecible.
+    </p>
+    <button onclick="generarCaja('Dulces Clásicos', this)">Obtener caja</button>
+    <div class="resultado"></div>
+  </div>
+
+  <!-- PICANTES -->
+  <div class="box">
+    <h2>Dulces Picantes</h2>
+    <p>
+    Combinaciones intensas que integran dulzor con picante. 
+    Diseñado para una experiencia más extrema y diferente.
+    </p>
+    <button onclick="generarCaja('Dulces Picantes', this)">Obtener caja</button>
+    <div class="resultado"></div>
+  </div>
+
+  <!-- MIXTOS -->
+  <div class="box">
+    <h2>Mixtos</h2>
+    <p>
+    Mezcla de perfiles dulces y picantes en una sola experiencia. 
+    Mayor variedad y sorpresa en cada selección.
+    </p>
+    <button onclick="generarCaja('Mixtos', this)">Obtener caja</button>
+    <div class="resultado"></div>
+  </div>
+
+</div>
+
+<script>
+function generarCaja(tipo, boton) {
+  const contenedor = boton.nextElementSibling;
+
+  if (contenedor.innerHTML !== "") return; // BLOQUEO
+
+  contenedor.innerHTML = "Asignando caja...";
+
+  setTimeout(() => {
+    const numero = Math.floor(Math.random() * 5) + 1;
+    const resultado = "Caja " + numero;
+
+    contenedor.innerHTML = "Resultado: " + resultado;
+
+    const mensaje = `Hola, quiero la ${resultado} de ${tipo}`;
+    const url = `https://wa.me/5212712387123?text=${encodeURIComponent(mensaje)}`;
+
+    window.open(url, "_blank");
+
+  }, 1500);
+}
+</script>
+
+</body>
+</html>
