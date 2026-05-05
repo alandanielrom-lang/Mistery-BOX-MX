@@ -12,20 +12,39 @@ body {
   color: white;
 }
 
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: rgba(0,0,0,0.8);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #ff9800;
+}
+
 /* HERO */
 .hero {
-  height: 60vh;
+  height: 50vh;
   background:
     linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
     url('fondopp4.png') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
 .hero h1 {
-  font-size: 50px;
+  font-size: 45px;
+  text-shadow: 0 0 20px #ff9800;
 }
 
 /* SECCIONES */
@@ -34,9 +53,12 @@ body {
 }
 
 .box {
+  display: flex;
+  align-items: center;
+  gap: 40px;
   margin-bottom: 60px;
-  padding: 30px;
   background: #121222;
+  padding: 30px;
   border-radius: 20px;
   transition: 0.3s;
 }
@@ -46,11 +68,27 @@ body {
   box-shadow: 0 0 20px #ff9800;
 }
 
-.box h2 {
-  font-size: 30px;
+.box img {
+  width: 40%;
+  border-radius: 20px;
+  transition: 0.3s;
+  filter: brightness(0.85);
 }
 
-.box p {
+.box img:hover {
+  transform: scale(1.05);
+  filter: brightness(1);
+}
+
+.text {
+  width: 60%;
+}
+
+.text h2 {
+  font-size: 28px;
+}
+
+.text p {
   opacity: 0.7;
   text-align: justify;
   line-height: 1.6;
@@ -59,29 +97,34 @@ body {
 /* BOTÓN */
 button {
   margin-top: 15px;
-  padding: 12px 20px;
+  padding: 12px 25px;
   background: linear-gradient(45deg, #ff9800, #ff5722);
   border: none;
   color: white;
   cursor: pointer;
   transition: 0.3s;
+  box-shadow: 0 0 15px #ff9800;
 }
 
 button:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 20px #ff9800;
+  box-shadow: 0 0 30px #ff9800;
 }
 
 /* RESULTADO */
 .resultado {
-  margin-top: 20px;
-  font-size: 18px;
+  margin-top: 15px;
   color: #ff9800;
+  font-weight: bold;
 }
 </style>
 </head>
 
 <body>
+
+<nav>
+  <a href="productos.html">← Regresar</a>
+</nav>
 
 <section class="hero">
   <h1>Cajas de Dulces</h1>
@@ -89,37 +132,46 @@ button:hover {
 
 <div class="container">
 
-  <!-- DULCES CLÁSICOS -->
+  <!-- CLÁSICOS -->
   <div class="box">
-    <h2>Dulces Clásicos</h2>
-    <p>
-    Selección enfocada en sabores tradicionales y equilibrados. 
-    Ideal para quienes buscan una experiencia más suave pero igualmente impredecible.
-    </p>
-    <button onclick="generarCaja('Dulces Clásicos', this)">Obtener caja</button>
-    <div class="resultado"></div>
+    <img src="cajad1.png">
+    <div class="text">
+      <h2>Dulces Clásicos</h2>
+      <p>
+      Selección enfocada en sabores tradicionales y equilibrados. 
+      Ideal para quienes buscan una experiencia más suave pero igualmente impredecible.
+      </p>
+      <button onclick="generarCaja('Dulces Clásicos', this)">Obtener caja</button>
+      <div class="resultado"></div>
+    </div>
   </div>
 
   <!-- PICANTES -->
   <div class="box">
-    <h2>Dulces Picantes</h2>
-    <p>
-    Combinaciones intensas que integran dulzor con picante. 
-    Diseñado para una experiencia más extrema y diferente.
-    </p>
-    <button onclick="generarCaja('Dulces Picantes', this)">Obtener caja</button>
-    <div class="resultado"></div>
+    <img src="cajad1.png">
+    <div class="text">
+      <h2>Dulces Picantes</h2>
+      <p>
+      Combinaciones intensas que integran dulzor con picante. 
+      Diseñado para una experiencia más extrema y diferente.
+      </p>
+      <button onclick="generarCaja('Dulces Picantes', this)">Obtener caja</button>
+      <div class="resultado"></div>
+    </div>
   </div>
 
   <!-- MIXTOS -->
   <div class="box">
-    <h2>Mixtos</h2>
-    <p>
-    Mezcla de perfiles dulces y picantes en una sola experiencia. 
-    Mayor variedad y sorpresa en cada selección.
-    </p>
-    <button onclick="generarCaja('Mixtos', this)">Obtener caja</button>
-    <div class="resultado"></div>
+    <img src="cajad1.png">
+    <div class="text">
+      <h2>Mixtos</h2>
+      <p>
+      Mezcla de perfiles dulces y picantes en una sola experiencia. 
+      Mayor variedad y sorpresa en cada selección.
+      </p>
+      <button onclick="generarCaja('Mixtos', this)">Obtener caja</button>
+      <div class="resultado"></div>
+    </div>
   </div>
 
 </div>
@@ -128,7 +180,7 @@ button:hover {
 function generarCaja(tipo, boton) {
   const contenedor = boton.nextElementSibling;
 
-  if (contenedor.innerHTML !== "") return; // BLOQUEO
+  if (contenedor.innerHTML !== "") return;
 
   contenedor.innerHTML = "Asignando caja...";
 
@@ -142,7 +194,6 @@ function generarCaja(tipo, boton) {
     const url = `https://wa.me/5212712387123?text=${encodeURIComponent(mensaje)}`;
 
     window.open(url, "_blank");
-
   }, 1500);
 }
 </script>
