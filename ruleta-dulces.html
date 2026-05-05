@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ruleta Dulces</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0a0a12;
+  color: white;
+  text-align: center;
+}
+
+/* NAV */
+nav {
+  padding: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+/* CONTENEDOR */
+.container {
+  margin-top: 50px;
+}
+
+/* RULETA */
+.ruleta-container {
+  position: relative;
+  width: 300px;
+  margin: auto;
+}
+
+.ruleta {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 8px solid #ff9800;
+  background: conic-gradient(
+    #111 0deg 72deg,
+    #222 72deg 144deg,
+    #111 144deg 216deg,
+    #222 216deg 288deg,
+    #111 288deg 360deg
+  );
+  transition: transform 4s ease-out;
+}
+
+/* FLECHA */
+.flecha {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  color: #ff9800;
+}
+
+/* TEXTO */
+.resultado {
+  margin-top: 30px;
+  font-size: 22px;
+  color: #ff9800;
+}
+
+/* BOTÓN */
+button {
+  margin-top: 30px;
+  padding: 15px 30px;
+  background: linear-gradient(45deg, #ff9800, #ff5722);
+  border: none;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff9800;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="dulces.html">← Regresar</a>
+</nav>
+
+<div class="container">
+
+  <h1>Gira la ruleta</h1>
+
+  <div class="ruleta-container">
+    <div class="flecha">▼</div>
+    <div class="ruleta" id="ruleta"></div>
+  </div>
+
+  <button onclick="girar()">Girar</button>
+
+  <div class="resultado" id="resultado"></div>
+
+</div>
+
+<script>
+let girado = false;
+
+function girar() {
+  if (girado) return;
+  girado = true;
+
+  const ruleta = document.getElementById("ruleta");
+  const resultadoDiv = document.getElementById("resultado");
+
+  const numero = Math.floor(Math.random() * 5) + 1;
+  const gradosPorSeccion = 360 / 5;
+  const giro = 3600 + (numero * gradosPorSeccion);
+
+  ruleta.style.transform = "rotate(" + giro + "deg)";
+
+  setTimeout(() => {
+    const resultado = "Caja " + numero;
+    resultadoDiv.innerHTML = "Te tocó: " + resultado;
+
+    // Espera antes de enviar a WhatsApp
+    setTimeout(() => {
+      const mensaje = `Hola, quiero la ${resultado} de Dulces Clásicos`;
+      window.open(`https://wa.me/5212711021374?text=${encodeURIComponent(mensaje)}`);
+    }, 2500);
+
+  }, 4000);
+}
+</script>
+
+</body>
+</html>
