@@ -14,8 +14,6 @@ body {
 
 /* NAV */
 nav {
-  display: flex;
-  justify-content: space-between;
   padding: 20px 40px;
   background: rgba(0,0,0,0.8);
 }
@@ -23,7 +21,6 @@ nav {
 nav a {
   color: white;
   text-decoration: none;
-  font-size: 16px;
   transition: 0.3s;
 }
 
@@ -84,17 +81,13 @@ nav a:hover {
   width: 60%;
 }
 
-.text h2 {
-  font-size: 28px;
-}
-
 .text p {
   opacity: 0.7;
-  text-align: justify;
   line-height: 1.6;
+  text-align: justify;
 }
 
-/* BOTÓN */
+/* BOTONES */
 button {
   margin-top: 15px;
   padding: 12px 25px;
@@ -117,6 +110,14 @@ button:hover {
   color: #ff9800;
   font-weight: bold;
 }
+
+/* MINI SECCIONES */
+.detalle {
+  margin-bottom: 80px;
+  background: #121222;
+  padding: 40px;
+  border-radius: 20px;
+}
 </style>
 </head>
 
@@ -137,10 +138,7 @@ button:hover {
     <img src="cajad1.png">
     <div class="text">
       <h2>Dulces Clásicos</h2>
-      <p>
-      Selección enfocada en sabores tradicionales y equilibrados. 
-      Ideal para quienes buscan una experiencia más suave pero igualmente impredecible.
-      </p>
+      <p>Sabores tradicionales con un toque de sorpresa.</p>
       <button onclick="generarCaja('Dulces Clásicos', this)">Obtener caja</button>
       <div class="resultado"></div>
     </div>
@@ -151,10 +149,7 @@ button:hover {
     <img src="cajad1.png">
     <div class="text">
       <h2>Dulces Picantes</h2>
-      <p>
-      Combinaciones intensas que integran dulzor con picante. 
-      Diseñado para una experiencia más extrema y diferente.
-      </p>
+      <p>Experiencia intensa con combinaciones más extremas.</p>
       <button onclick="generarCaja('Dulces Picantes', this)">Obtener caja</button>
       <div class="resultado"></div>
     </div>
@@ -165,10 +160,7 @@ button:hover {
     <img src="cajad1.png">
     <div class="text">
       <h2>Mixtos</h2>
-      <p>
-      Mezcla de perfiles dulces y picantes en una sola experiencia. 
-      Mayor variedad y sorpresa en cada selección.
-      </p>
+      <p>Variedad completa en una sola caja.</p>
       <button onclick="generarCaja('Mixtos', this)">Obtener caja</button>
       <div class="resultado"></div>
     </div>
@@ -176,13 +168,38 @@ button:hover {
 
 </div>
 
+<!-- DETALLES -->
+<section style="padding:60px;">
+
+  <div class="detalle">
+    <h2>Dulces Clásicos - Detalle</h2>
+    <p>Experiencia equilibrada con productos tradicionales.</p>
+    <p>(Aquí irá la lista de dulces)</p>
+    <button onclick="ruletaFinal('Dulces Clásicos', this)">Generar caja</button>
+    <div class="resultado"></div>
+  </div>
+
+  <div class="detalle">
+    <h2>Dulces Picantes</h2>
+    <p>En desarrollo.</p>
+    <h3 style="color:#ff9800;">Próximamente</h3>
+  </div>
+
+  <div class="detalle">
+    <h2>Mixtos</h2>
+    <p>En desarrollo.</p>
+    <h3 style="color:#ff9800;">Próximamente</h3>
+  </div>
+
+</section>
+
 <script>
 function generarCaja(tipo, boton) {
   const contenedor = boton.nextElementSibling;
 
   if (contenedor.innerHTML !== "") return;
 
-  contenedor.innerHTML = "Asignando caja...";
+  contenedor.innerHTML = "Asignando...";
 
   setTimeout(() => {
     const numero = Math.floor(Math.random() * 5) + 1;
@@ -191,9 +208,25 @@ function generarCaja(tipo, boton) {
     contenedor.innerHTML = "Resultado: " + resultado;
 
     const mensaje = `Hola, quiero la ${resultado} de ${tipo}`;
-    const url = `https://wa.me/5212712387123?text=${encodeURIComponent(mensaje)}`;
+    window.open(`https://wa.me/5212712387123?text=${encodeURIComponent(mensaje)}`);
+  }, 1500);
+}
 
-    window.open(url, "_blank");
+function ruletaFinal(tipo, boton) {
+  const contenedor = boton.nextElementSibling;
+
+  if (contenedor.innerHTML !== "") return;
+
+  contenedor.innerHTML = "Procesando...";
+
+  setTimeout(() => {
+    const numero = Math.floor(Math.random() * 5) + 1;
+    const resultado = "Caja " + numero;
+
+    contenedor.innerHTML = "Asignado: " + resultado;
+
+    const mensaje = `Hola, quiero la ${resultado} de ${tipo}`;
+    window.open(`https://wa.me/5212712387123?text=${encodeURIComponent(mensaje)}`);
   }, 1500);
 }
 </script>
