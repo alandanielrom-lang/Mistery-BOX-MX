@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ruleta Basket</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0a0a12;
+  color: white;
+}
+
+/* NAV */
+nav {
+  padding: 20px 40px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #ff9800, #ff5722);
+  box-shadow: 0 0 15px #ff9800;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px #ff9800;
+}
+
+/* LAYOUT */
+.main {
+  display: flex;
+  padding: 40px;
+  gap: 40px;
+}
+
+/* TEXTO */
+.info {
+  width: 50%;
+}
+
+.info h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.info p {
+  opacity: 0.7;
+  line-height: 1.7;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+/* RULETA */
+.ruleta-area {
+  width: 50%;
+  text-align: center;
+}
+
+.ruleta-container {
+  position: relative;
+  width: 420px;
+  margin: auto;
+}
+
+.ruleta {
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  border: 10px solid #ff9800;
+  overflow: hidden;
+  transition: transform 4s ease-out;
+}
+
+/* SECTORES */
+.sector {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transform-origin: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sector span {
+  transform: rotate(36deg);
+}
+
+.s1 { transform: rotate(0deg) skewY(-30deg); background:#111;}
+.s2 { transform: rotate(72deg) skewY(-30deg); background:#222;}
+.s3 { transform: rotate(144deg) skewY(-30deg); background:#111;}
+.s4 { transform: rotate(216deg) skewY(-30deg); background:#222;}
+.s5 { transform: rotate(288deg) skewY(-30deg); background:#111;}
+
+/* FLECHA */
+.flecha {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 45px;
+  color: #ff9800;
+}
+
+/* INPUT */
+input {
+  margin-top: 20px;
+  padding: 12px;
+  width: 260px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* BOTÓN */
+button {
+  margin-top: 20px;
+  padding: 15px 30px;
+  background: linear-gradient(45deg, #ff9800, #ff5722);
+  border: none;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff9800;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px #ff9800;
+}
+
+/* RESULTADO */
+.resultado {
+  margin-top: 20px;
+  font-size: 22px;
+  color: #ff9800;
+}
+
+/* CATÁLOGO */
+.catalogo {
+  padding: 60px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.item {
+  background: #121222;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ff9800;
+}
+
+.item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="basket.html">← Regresar</a>
+</nav>
+
+<div class="main">
+
+<!-- TEXTO -->
+<div class="info">
+
+<h1>¿Cómo funciona?</h1>
+
+<p>
+Cada caja dentro de esta categoría está identificada por un número del 1 al 5.
+El contenido exacto de cada una permanece en secreto para mantener la esencia
+de sorpresa dentro del concepto Mystery Box.
+</p>
+
+<p>
+El usuario no puede conocer previamente qué incluye cada caja, lo que garantiza
+una experiencia auténtica basada en la incertidumbre y la emoción.
+</p>
+
+<p>
+Solo debes ingresar tu nombre y girar la ruleta. El sistema asignará
+automáticamente una caja de forma aleatoria.
+</p>
+
+<p>
+Una vez obtenido el resultado, podrás enviar tu pedido directamente
+para coordinar la entrega.
+</p>
+
+</div>
+
+<!-- RULETA -->
+<div class="ruleta-area">
+
+<div class="ruleta-container">
+<div class="flecha">▼</div>
+
+<div class="ruleta" id="ruleta">
+  <div class="sector s1"><span>Caja 1</span></div>
+  <div class="sector s2"><span>Caja 2</span></div>
+  <div class="sector s3"><span>Caja 3</span></div>
+  <div class="sector s4"><span>Caja 4</span></div>
+  <div class="sector s5"><span>Caja 5</span></div>
+</div>
+</div>
+
+<input type="text" id="nombre" placeholder="Escribe tu nombre">
+
+<br>
+
+<button id="boton" onclick="girar()">Girar</button>
+
+<div class="resultado" id="resultado"></div>
+
+</div>
+
+</div>
+
+<!-- CATÁLOGO -->
+<section class="catalogo">
+<h2>Artículos disponibles</h2>
+
+<div class="grid">
+
+<div class="item"><img src="basket1.png"><p>Artículo 1</p></div>
+<div class="item"><img src="basket2.png"><p>Artículo 2</p></div>
+<div class="item"><img src="basket3.png"><p>Artículo 3</p></div>
+<div class="item"><img src="basket4.png"><p>Artículo 4</p></div>
+<div class="item"><img src="basket5.png"><p>Artículo 5</p></div>
+<div class="item"><img src="basket6.png"><p>Artículo 6</p></div>
+<div class="item"><img src="basket7.png"><p>Artículo 7</p></div>
+<div class="item"><img src="basket8.png"><p>Artículo 8</p></div>
+<div class="item"><img src="basket9.png"><p>Artículo 9</p></div>
+<div class="item"><img src="basket10.png"><p>Artículo 10</p></div>
+<div class="item"><img src="basket11.png"><p>Artículo 11</p></div>
+<div class="item"><img src="basket12.png"><p>Artículo 12</p></div>
+
+</div>
+</section>
+
+<script>
+let girado = false;
+let resultadoFinal = "";
+
+function girar() {
+  if (girado) return;
+  girado = true;
+
+  const ruleta = document.getElementById("ruleta");
+  const resultadoDiv = document.getElementById("resultado");
+  const boton = document.getElementById("boton");
+
+  const numero = Math.floor(Math.random() * 5) + 1;
+  const grados = 3600 + (numero * 72);
+
+  ruleta.style.transform = "rotate(" + grados + "deg)";
+
+  setTimeout(() => {
+    resultadoFinal = "Caja " + numero;
+    resultadoDiv.innerHTML = "Te tocó: " + resultadoFinal;
+
+    boton.innerHTML = "Enviar pedido";
+    boton.onclick = enviar;
+  }, 4000);
+}
+
+function enviar() {
+  const nombre = document.getElementById("nombre").value || "Cliente";
+
+  const mensaje = `Hola, soy ${nombre}.
+Quiero la ${resultadoFinal} de Mystery Box Basket.
+Quiero acordar el lugar de entrega.`;
+
+  window.open(`https://wa.me/5212711021374?text=${encodeURIComponent(mensaje)}`);
+}
+</script>
+
+</body>
+</html>
