@@ -24,6 +24,12 @@ nav a {
   border-radius: 10px;
   background: linear-gradient(45deg, #ff9800, #ff5722);
   box-shadow: 0 0 15px #ff9800;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px #ff9800;
 }
 
 /* LAYOUT */
@@ -39,13 +45,15 @@ nav a {
 }
 
 .info h1 {
-  font-size: 42px;
+  font-size: 40px;
+  margin-bottom: 20px;
 }
 
 .info p {
   opacity: 0.7;
   line-height: 1.7;
   text-align: justify;
+  margin-bottom: 15px;
 }
 
 /* DERECHA */
@@ -57,13 +65,13 @@ nav a {
 /* RULETA GRANDE */
 .ruleta-container {
   position: relative;
-  width: 400px;
+  width: 420px;
   margin: auto;
 }
 
 .ruleta {
-  width: 400px;
-  height: 400px;
+  width: 420px;
+  height: 420px;
   border-radius: 50%;
   border: 10px solid #ff9800;
   position: relative;
@@ -84,6 +92,7 @@ nav a {
 
 .sector span {
   transform: rotate(36deg);
+  font-size: 15px;
 }
 
 .s1 { transform: rotate(0deg) skewY(-30deg); background:#111;}
@@ -95,10 +104,10 @@ nav a {
 /* FLECHA */
 .flecha {
   position: absolute;
-  top: -25px;
+  top: -30px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 40px;
+  font-size: 45px;
   color: #ff9800;
 }
 
@@ -120,6 +129,12 @@ button {
   color: white;
   cursor: pointer;
   box-shadow: 0 0 20px #ff9800;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px #ff9800;
 }
 
 /* RESULTADO */
@@ -171,22 +186,36 @@ button {
 
 <div class="main">
 
+  <!-- TEXTO ORIGINAL -->
   <div class="info">
+
     <h1>¿Cómo funciona?</h1>
+
     <p>
-    Cada caja está numerada del 1 al 5. El contenido es completamente secreto,
-    lo que garantiza una experiencia basada en el misterio.
+    Cada caja dentro del sistema está identificada por un número del 1 al 5. 
+    Sin embargo, el contenido específico de cada número se mantiene completamente en secreto.
+    Esto garantiza que cada selección sea una experiencia basada en el misterio y la sorpresa.
     </p>
+
     <p>
-    No puedes elegir la caja directamente, el sistema lo hace por ti de forma aleatoria.
-    Esto evita cualquier preferencia y mantiene la emoción.
+    El usuario no tiene acceso a conocer qué contiene cada caja antes de obtener su resultado,
+    lo cual evita cualquier tipo de preferencia o manipulación en la elección.
+    De esta manera, el proceso se mantiene justo, aleatorio y emocionante.
     </p>
+
     <p>
-    Ingresa tu nombre, gira la ruleta y descubre tu resultado.
-    Luego podrás enviar tu pedido.
+    Para utilizar la ruleta, simplemente ingresa tu nombre y presiona el botón de girar.
+    El sistema asignará automáticamente una caja mediante un proceso visual animado.
     </p>
+
+    <p>
+    Una vez que la ruleta se detenga, podrás visualizar tu resultado.
+    Después de eso, podrás enviar tu pedido directamente por WhatsApp para coordinar la entrega.
+    </p>
+
   </div>
 
+  <!-- RULETA -->
   <div class="ruleta-area">
 
     <div class="ruleta-container">
@@ -219,12 +248,8 @@ button {
 
   <div class="grid">
 
-    <!-- DUPLICA ESTE BLOQUE PARA CADA DULCE -->
-    <div class="item">
-      <img src="dulce1.png">
-      <p>Nombre del dulce</p>
-    </div>
-
+    <!-- DUPLICA Y CAMBIA -->
+    <div class="item"><img src="dulce1.png"><p>Nombre del dulce</p></div>
     <div class="item"><img src="dulce2.png"><p>Dulce 2</p></div>
     <div class="item"><img src="dulce3.png"><p>Dulce 3</p></div>
     <div class="item"><img src="dulce4.png"><p>Dulce 4</p></div>
