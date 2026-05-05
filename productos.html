@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -99,33 +99,12 @@ nav a {
   box-shadow: 0 0 20px #ff9800;
 }
 
-/* GRID EXTRA */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  padding: 40px;
-}
-
-.card {
-  background: #121222;
-  padding: 20px;
-  border-radius: 20px;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #ff9800;
-}
-
-.card button {
-  margin-top: 10px;
-  padding: 10px;
-  background: #ff9800;
-  border: none;
-  color: white;
-  cursor: pointer;
+/* PROXIMAMENTE */
+.prox {
+  margin-top: 15px;
+  color: #ff9800;
+  font-weight: bold;
+  text-shadow: 0 0 10px #ff9800;
 }
 </style>
 </head>
@@ -181,9 +160,15 @@ contrastes entre lo dulce y lo picante. Cada selección responde a un sistema al
 
 El objetivo no es solo consumir, sino descubrir, generando expectativa en cada apertura.
     </p>
+
     <button onclick="window.location.href='dulces.html'">
       Ver opciones
     </button>
+
+    <div class="prox">
+      Dulces picantes y mixtos: Próximamente
+    </div>
+
   </div>
 </section>
 
@@ -204,29 +189,6 @@ Más allá del producto, se busca transmitir dinamismo, identidad y sorpresa en 
     </button>
   </div>
   <img src="cajab1.png">
-</section>
-
-<!-- EXTRA -->
-<section class="grid">
-
-  <div class="card">
-    <h3>Dulces Picantes</h3>
-    <p>Experiencia intensa</p>
-    <button onclick="window.location.href='dulces.html'">Entrar</button>
-  </div>
-
-  <div class="card">
-    <h3>Dulces Clásicos</h3>
-    <p>Opciones tradicionales</p>
-    <button onclick="window.location.href='dulces.html'">Entrar</button>
-  </div>
-
-  <div class="card">
-    <h3>Premium Gamer</h3>
-    <p>Mayor valor</p>
-    <button onclick="window.location.href='gamer.html'">Entrar</button>
-  </div>
-
 </section>
 
 </body>
