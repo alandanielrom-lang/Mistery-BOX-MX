@@ -25,7 +25,7 @@ nav a {
 
 /* CONTENEDOR */
 .container {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 /* RULETA */
@@ -40,15 +40,34 @@ nav a {
   height: 300px;
   border-radius: 50%;
   border: 8px solid #ff9800;
-  background: conic-gradient(
-    #111 0deg 72deg,
-    #222 72deg 144deg,
-    #111 144deg 216deg,
-    #222 216deg 288deg,
-    #111 288deg 360deg
-  );
+  position: relative;
+  overflow: hidden;
   transition: transform 4s ease-out;
 }
+
+/* SECCIONES */
+.sector {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background: #111;
+  transform-origin: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sector span {
+  transform: rotate(36deg);
+  font-size: 14px;
+}
+
+/* COLORES alternos */
+.s1 { transform: rotate(0deg) skewY(-30deg); background:#111;}
+.s2 { transform: rotate(72deg) skewY(-30deg); background:#222;}
+.s3 { transform: rotate(144deg) skewY(-30deg); background:#111;}
+.s4 { transform: rotate(216deg) skewY(-30deg); background:#222;}
+.s5 { transform: rotate(288deg) skewY(-30deg); background:#111;}
 
 /* FLECHA */
 .flecha {
@@ -60,16 +79,9 @@ nav a {
   color: #ff9800;
 }
 
-/* TEXTO */
-.resultado {
-  margin-top: 30px;
-  font-size: 22px;
-  color: #ff9800;
-}
-
 /* BOTÓN */
 button {
-  margin-top: 30px;
+  margin-top: 20px;
   padding: 15px 30px;
   background: linear-gradient(45deg, #ff9800, #ff5722);
   border: none;
@@ -81,6 +93,23 @@ button {
 
 button:hover {
   transform: scale(1.1);
+}
+
+/* INPUT */
+input {
+  margin-top: 20px;
+  padding: 10px;
+  width: 250px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* RESULTADO */
+.resultado {
+  margin-top: 20px;
+  font-size: 22px;
+  color: #ff9800;
 }
 </style>
 </head>
@@ -97,10 +126,23 @@ button:hover {
 
   <div class="ruleta-container">
     <div class="flecha">▼</div>
-    <div class="ruleta" id="ruleta"></div>
+
+    <div class="ruleta" id="ruleta">
+
+      <div class="sector s1"><span>Caja 1</span></div>
+      <div class="sector s2"><span>Caja 2</span></div>
+      <div class="sector s3"><span>Caja 3</span></div>
+      <div class="sector s4"><span>Caja 4</span></div>
+      <div class="sector s5"><span>Caja 5</span></div>
+
+    </div>
   </div>
 
-  <button onclick="girar()">Girar</button>
+  <input type="text" id="nombre" placeholder="Escribe tu nombre">
+
+  <br>
+
+  <button id="boton" onclick="girar()">Girar</button>
 
   <div class="resultado" id="resultado"></div>
 
@@ -108,6 +150,7 @@ button:hover {
 
 <script>
 let girado = false;
+let resultadoFinal = "";
 
 function girar() {
   if (girado) return;
@@ -115,24 +158,31 @@ function girar() {
 
   const ruleta = document.getElementById("ruleta");
   const resultadoDiv = document.getElementById("resultado");
+  const boton = document.getElementById("boton");
 
   const numero = Math.floor(Math.random() * 5) + 1;
-  const gradosPorSeccion = 360 / 5;
-  const giro = 3600 + (numero * gradosPorSeccion);
+  const grados = 3600 + (numero * 72);
 
-  ruleta.style.transform = "rotate(" + giro + "deg)";
+  ruleta.style.transform = "rotate(" + grados + "deg)";
 
   setTimeout(() => {
-    const resultado = "Caja " + numero;
-    resultadoDiv.innerHTML = "Te tocó: " + resultado;
+    resultadoFinal = "Caja " + numero;
+    resultadoDiv.innerHTML = "Te tocó: " + resultadoFinal;
 
-    // Espera antes de enviar a WhatsApp
-    setTimeout(() => {
-      const mensaje = `Hola, quiero la ${resultado} de Dulces Clásicos`;
-      window.open(`https://wa.me/5212711021374?text=${encodeURIComponent(mensaje)}`);
-    }, 2500);
+    boton.innerHTML = "Enviar pedido";
+    boton.onclick = enviar;
 
   }, 4000);
+}
+
+function enviar() {
+  const nombre = document.getElementById("nombre").value || "Cliente";
+
+  const mensaje = `Hola, soy ${nombre}. 
+Quiero la ${resultadoFinal} de Dulces Clásicos.
+Quiero acordar el lugar de entrega.`;
+
+  window.open(`https://wa.me/5212711021374?text=${encodeURIComponent(mensaje)}`);
 }
 </script>
 
