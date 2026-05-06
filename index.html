@@ -62,7 +62,8 @@ nav a:hover {
 
 .hero p {
   max-width: 550px;
-  opacity: 0.7;
+  opacity: 0.75;
+  line-height: 1.6;
 }
 
 .hero button {
@@ -93,11 +94,6 @@ nav a:hover {
 .section img {
   width: 45%;
   border-radius: 20px;
-  transition: 0.3s;
-}
-
-.section img:hover {
-  transform: scale(1.05);
 }
 
 .text {
@@ -106,7 +102,6 @@ nav a:hover {
 
 .text h3 {
   font-size: 35px;
-  margin-bottom: 15px;
 }
 
 .text p {
@@ -115,7 +110,7 @@ nav a:hover {
   line-height: 1.7;
 }
 
-/* CATEGORÍAS */
+/* CARDS */
 .preview {
   display: flex;
   justify-content: center;
@@ -138,20 +133,11 @@ nav a:hover {
   height: 200px;
   object-fit: cover;
   border-radius: 15px;
-  transition: 0.4s;
-}
-
-.card:hover img {
-  transform: scale(1.08);
 }
 
 .card:hover {
   transform: scale(1.05);
   box-shadow: 0 0 25px #ff9800;
-}
-
-.card h3 {
-  margin-top: 15px;
 }
 
 .card button {
@@ -161,12 +147,6 @@ nav a:hover {
   border: none;
   color: white;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.card button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px #ff9800;
 }
 
 /* FOOTER */
@@ -174,17 +154,6 @@ footer {
   padding: 30px;
   text-align: center;
   background: #111;
-}
-
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  padding: 15px;
-  border-radius: 50%;
-  color: white;
-  text-decoration: none;
 }
 </style>
 </head>
@@ -202,57 +171,95 @@ footer {
 <section class="hero">
   <h2>La experiencia de lo inesperado</h2>
   <p>
-    Mystery Box MX redefine la forma de comprar. No eliges un producto específico, eliges vivir una experiencia cuidadosamente diseñada donde el misterio, la emoción y la calidad convergen en una sola decisión.
+    Mystery Box MX es una plataforma diseñada para transformar la compra tradicional en una experiencia interactiva basada en sorpresa controlada. Aquí no eliges un producto específico, eliges vivir un proceso donde la incertidumbre, la expectativa y la satisfacción final forman parte del mismo valor del producto.
   </p>
-  <button onclick="window.location.href='productos.html'">
-    Explorar
-  </button>
+  <button onclick="window.location.href='productos.html'">Explorar</button>
 </section>
 
-<!-- QUE HACEMOS -->
 <section class="section">
   <div class="text">
     <h3>¿Qué hacemos?</h3>
     <p>
-      En Mystery Box MX desarrollamos un sistema de selección basado en aleatoriedad controlada, diseñado para ofrecer experiencias de compra diferentes a los modelos tradicionales. Cada caja es el resultado de un proceso de curaduría donde se evalúan factores como tendencia, calidad del producto, valor percibido y coherencia temática.
+      Operamos bajo un modelo de curaduría estratégica donde cada caja es construida mediante la selección de productos con base en criterios de calidad, tendencia y coherencia temática. Este proceso permite asegurar que cada experiencia mantenga un estándar consistente sin revelar el contenido exacto.
       <br><br>
-      Nuestro enfoque no se limita a vender artículos individuales; construimos experiencias completas. Esto implica diseñar combinaciones estratégicas de productos que generen expectativa antes de abrir la caja y satisfacción después de descubrir su contenido.
+      Implementamos principios de comportamiento del consumidor, específicamente relacionados con la anticipación y la recompensa, para diseñar una experiencia que genere mayor impacto emocional que una compra convencional. Esto convierte cada caja en algo más que un producto: en una experiencia estructurada.
       <br><br>
-      Aplicamos principios de comportamiento del consumidor y emoción anticipatoria para maximizar la sensación de sorpresa, manteniendo siempre un estándar de calidad que respalde cada entrega.
+      Nuestro sistema elimina la toma de decisiones complejas por parte del usuario, sustituyéndola por un proceso guiado donde el valor se percibe tanto en el resultado como en la experiencia previa.
     </p>
   </div>
-  <img src="./fondopp3.png">
+  <img src="fondopp3.png">
 </section>
 
-<!-- QUE VENDEMOS -->
 <section class="section">
-  <img src="./fondopp2.png">
+  <img src="fondopp2.png">
   <div class="text">
     <h3>¿Qué vendemos?</h3>
     <p>
-      Actualmente operamos con dos líneas principales de producto: dulces y belleza. Cada línea está estructurada bajo un sistema de cajas numeradas que contienen una selección variable de artículos.
+      Actualmente contamos con dos líneas principales: cajas de dulces y ediciones especiales por festividad. Ambas funcionan bajo un sistema de cajas numeradas que contienen productos seleccionados previamente, pero cuyo contenido permanece oculto hasta el momento de apertura.
       <br><br>
-      En la categoría de dulces, se incluyen productos nacionales e internacionales con diferentes perfiles de sabor, texturas y niveles de intensidad, diseñados para ofrecer una experiencia sensorial diversa.
+      En la categoría de dulces, ofrecemos una mezcla de productos nacionales e internacionales que buscan generar una experiencia sensorial completa, considerando sabor, textura y variedad.
       <br><br>
-      En la categoría de belleza, específicamente maquillaje, se integran productos enfocados en estética, cuidado personal y tendencias actuales. Esto puede incluir cosméticos, accesorios y artículos complementarios seleccionados bajo criterios de funcionalidad y estilo.
-      <br><br>
-      En ambos casos, el usuario no conoce el contenido exacto antes de la compra, lo que garantiza una experiencia basada en sorpresa real, eliminando sesgos de elección y reforzando el valor emocional del producto.
+      Por otro lado, las ediciones de festividad operan bajo un modelo de disponibilidad limitada, donde cada caja se diseña específicamente para un evento o fecha relevante, integrando productos alineados con el contexto emocional del momento.
     </p>
   </div>
 </section>
 
-<!-- CATEGORÍAS -->
+<!-- FESTIVIDADES -->
+<section class="section">
+  <div class="text">
+    <h3>Ediciones por festividad</h3>
+    <p>
+      Las ediciones por festividad representan una extensión estratégica del catálogo, diseñadas para aprovechar momentos clave del calendario. Estas cajas funcionan bajo el concepto de “drop”, lo que implica disponibilidad limitada tanto en tiempo como en cantidad.
+      <br><br>
+      Cada edición es desarrollada con base en análisis de tendencias y comportamiento del consumidor, buscando ofrecer productos que no solo sorprendan, sino que también tengan relevancia dentro del contexto de la celebración.
+      <br><br>
+      Este enfoque permite generar una experiencia más personalizada, donde el valor no solo está en el contenido, sino en su relación con el momento en que se adquiere.
+    </p>
+  </div>
+  <img src="fondopp4.png">
+</section>
+
+<!-- CAJAS -->
 <section class="preview">
 
   <div class="card">
     <img src="cajam1.png">
-    <h3>Belleza (Maquillaje)</h3>
-    <button onclick="window.location.href='belleza.html'">Explorar</button>
+    <h3>Día de la Madre</h3>
+    <p style="opacity:0.7;">
+      Edición especial enfocada en belleza y cuidado personal, diseñada como una opción de regalo con valor emocional.
+    </p>
+    <button onclick="window.location.href='belleza.html'">Obtener caja</button>
   </div>
+
+  <div class="card" style="opacity:0.5; filter: grayscale(1);">
+    <img src="cajafutura1.png">
+    <h3>Halloween</h3>
+    <p style="opacity:0.6;">
+      Edición temática próxima, diseñada para experiencias inmersivas.
+    </p>
+    <button disabled>Próximamente</button>
+  </div>
+
+  <div class="card" style="opacity:0.5; filter: grayscale(1);">
+    <img src="cajafutura2.png">
+    <h3>Navidad</h3>
+    <p style="opacity:0.6;">
+      Colección especial de temporada con contenido exclusivo.
+    </p>
+    <button disabled>Próximamente</button>
+  </div>
+
+</section>
+
+<!-- DULCES -->
+<section class="preview">
 
   <div class="card">
     <img src="cajad1.png">
     <h3>Dulces</h3>
+    <p style="opacity:0.7;">
+      Línea permanente enfocada en variedad sensorial y experiencia de sorpresa continua.
+    </p>
     <button onclick="window.location.href='dulces.html'">Explorar</button>
   </div>
 
@@ -261,8 +268,6 @@ footer {
 <footer>
   2026 Mystery Box MX — Todos los derechos reservados
 </footer>
-
-<a href="https://wa.me/5212712387123" class="whatsapp">W</a>
 
 </body>
 </html>
