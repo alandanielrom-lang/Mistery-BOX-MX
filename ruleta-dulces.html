@@ -37,11 +37,13 @@ nav a:hover {
   display: flex;
   padding: 40px;
   gap: 40px;
+  flex-wrap: wrap;
 }
 
 /* IZQUIERDA */
 .info {
   width: 50%;
+  min-width: 300px;
 }
 
 .info h1 {
@@ -59,10 +61,11 @@ nav a:hover {
 /* DERECHA */
 .ruleta-area {
   width: 50%;
+  min-width: 300px;
   text-align: center;
 }
 
-/* RULETA GRANDE */
+/* RULETA */
 .ruleta-container {
   position: relative;
   width: 420px;
@@ -79,7 +82,6 @@ nav a:hover {
   transition: transform 4s ease-out;
 }
 
-/* SECTORES */
 .sector {
   position: absolute;
   width: 50%;
@@ -101,7 +103,6 @@ nav a:hover {
 .s4 { transform: rotate(216deg) skewY(-30deg); background:#222;}
 .s5 { transform: rotate(288deg) skewY(-30deg); background:#111;}
 
-/* FLECHA */
 .flecha {
   position: absolute;
   top: -30px;
@@ -144,36 +145,47 @@ button:hover {
   color: #ff9800;
 }
 
-/* CATÁLOGO */
+/* 🔥 CATÁLOGO MEJORADO */
 .catalogo {
   padding: 60px;
 }
 
+.catalogo h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 35px;
 }
 
 .item {
   background: #121222;
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 18px;
   text-align: center;
   transition: 0.3s;
 }
 
-.item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #ff9800;
-}
-
 .item img {
   width: 100%;
-  height: 120px;
+  height: 220px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
   margin-bottom: 10px;
+  transition: transform 0.4s ease;
+}
+
+.item:hover img {
+  transform: scale(1.08);
+}
+
+.item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff9800;
 }
 </style>
 </head>
@@ -186,36 +198,15 @@ button:hover {
 
 <div class="main">
 
-  <!-- TEXTO ORIGINAL -->
   <div class="info">
-
     <h1>¿Cómo funciona?</h1>
 
-    <p>
-    Cada caja dentro del sistema está identificada por un número del 1 al 5. 
-    Sin embargo, el contenido específico de cada número se mantiene completamente en secreto.
-    Esto garantiza que cada selección sea una experiencia basada en el misterio y la sorpresa.
-    </p>
-
-    <p>
-    El usuario no tiene acceso a conocer qué contiene cada caja antes de obtener su resultado,
-    lo cual evita cualquier tipo de preferencia o manipulación en la elección.
-    De esta manera, el proceso se mantiene justo, aleatorio y emocionante.
-    </p>
-
-    <p>
-    Para utilizar la ruleta, simplemente ingresa tu nombre y presiona el botón de girar.
-    El sistema asignará automáticamente una caja mediante un proceso visual animado.
-    </p>
-
-    <p>
-    Una vez que la ruleta se detenga, podrás visualizar tu resultado.
-    Después de eso, podrás enviar tu pedido directamente por WhatsApp para coordinar la entrega.
-    </p>
-
+    <p>Cada caja dentro del sistema está identificada por un número del 1 al 5...</p>
+    <p>El usuario no tiene acceso a conocer qué contiene cada caja...</p>
+    <p>Para utilizar la ruleta, simplemente ingresa tu nombre...</p>
+    <p>Una vez que la ruleta se detenga, podrás visualizar tu resultado...</p>
   </div>
 
-  <!-- RULETA -->
   <div class="ruleta-area">
 
     <div class="ruleta-container">
@@ -231,11 +222,8 @@ button:hover {
     </div>
 
     <input type="text" id="nombre" placeholder="Escribe tu nombre">
-
     <br>
-
     <button id="boton" onclick="girar()">Girar</button>
-
     <div class="resultado" id="resultado"></div>
 
   </div>
@@ -248,27 +236,26 @@ button:hover {
 
   <div class="grid">
 
-    <!-- DUPLICA Y CAMBIA -->
     <div class="item"><img src="dulce1.jpeg"><p>Mochi de Piña</p></div>
     <div class="item"><img src="dulce2.jpeg"><p>Mochi de Lychee</p></div>
     <div class="item"><img src="dulce3.jpeg"><p>Mochi de Granadilla</p></div>
-    <div class="item"><img src="dulce4.png"><p>Dulce 4</p></div>
-    <div class="item"><img src="dulce5.png"><p>Dulce 5</p></div>
-    <div class="item"><img src="dulce6.png"><p>Dulce 6</p></div>
-    <div class="item"><img src="dulce7.png"><p>Dulce 7</p></div>
-    <div class="item"><img src="dulce8.png"><p>Dulce 8</p></div>
-    <div class="item"><img src="dulce9.png"><p>Dulce 9</p></div>
-    <div class="item"><img src="dulce10.png"><p>Dulce 10</p></div>
-    <div class="item"><img src="dulce11.png"><p>Dulce 11</p></div>
-    <div class="item"><img src="dulce12.png"><p>Dulce 12</p></div>
-    <div class="item"><img src="dulce13.png"><p>Dulce 13</p></div>
-    <div class="item"><img src="dulce14.png"><p>Dulce 14</p></div>
-    <div class="item"><img src="dulce15.png"><p>Dulce 15</p></div>
-    <div class="item"><img src="dulce16.png"><p>Dulce 16</p></div>
-    <div class="item"><img src="dulce17.png"><p>Dulce 17</p></div>
-    <div class="item"><img src="dulce18.png"><p>Dulce 18</p></div>
-    <div class="item"><img src="dulce19.png"><p>Dulce 19</p></div>
-    <div class="item"><img src="dulce20.png"><p>Dulce 20</p></div>
+    <div class="item"><img src="dulce4.jpeg"><p>Dulce 4</p></div>
+    <div class="item"><img src="dulce5.jpeg"><p>Dulce 5</p></div>
+    <div class="item"><img src="dulce6.jpeg"><p>Dulce 6</p></div>
+    <div class="item"><img src="dulce7.jpeg"><p>Dulce 7</p></div>
+    <div class="item"><img src="dulce8.jpeg"><p>Dulce 8</p></div>
+    <div class="item"><img src="dulce9.jpeg"><p>Dulce 9</p></div>
+    <div class="item"><img src="dulce10.jpeg"><p>Dulce 10</p></div>
+    <div class="item"><img src="dulce11.jpeg"><p>Dulce 11</p></div>
+    <div class="item"><img src="dulce12.jpeg"><p>Dulce 12</p></div>
+    <div class="item"><img src="dulce13.jpeg"><p>Dulce 13</p></div>
+    <div class="item"><img src="dulce14.jpeg"><p>Dulce 14</p></div>
+    <div class="item"><img src="dulce15.jpeg"><p>Dulce 15</p></div>
+    <div class="item"><img src="dulce16.jpeg"><p>Dulce 16</p></div>
+    <div class="item"><img src="dulce17.jpeg"><p>Dulce 17</p></div>
+    <div class="item"><img src="dulce18.jpeg"><p>Dulce 18</p></div>
+    <div class="item"><img src="dulce19.jpeg"><p>Dulce 19</p></div>
+    <div class="item"><img src="dulce20.jpeg"><p>Dulce 20</p></div>
 
   </div>
 </section>
