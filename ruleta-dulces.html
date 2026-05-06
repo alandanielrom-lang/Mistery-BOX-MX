@@ -35,33 +35,30 @@ nav a:hover {
 /* LAYOUT */
 .main {
   display: flex;
-  padding: 40px;
-  gap: 40px;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 60px 80px;
+  gap: 60px;
 }
 
 /* IZQUIERDA */
 .info {
   width: 50%;
-  min-width: 300px;
 }
 
 .info h1 {
   font-size: 40px;
-  margin-bottom: 20px;
 }
 
 .info p {
   opacity: 0.7;
   line-height: 1.7;
   text-align: justify;
-  margin-bottom: 15px;
 }
 
 /* DERECHA */
 .ruleta-area {
   width: 50%;
-  min-width: 300px;
   text-align: center;
 }
 
@@ -77,7 +74,6 @@ nav a:hover {
   height: 420px;
   border-radius: 50%;
   border: 10px solid #ff9800;
-  position: relative;
   overflow: hidden;
   transition: transform 4s ease-out;
 }
@@ -94,7 +90,6 @@ nav a:hover {
 
 .sector span {
   transform: rotate(36deg);
-  font-size: 15px;
 }
 
 .s1 { transform: rotate(0deg) skewY(-30deg); background:#111;}
@@ -130,12 +125,10 @@ button {
   color: white;
   cursor: pointer;
   box-shadow: 0 0 20px #ff9800;
-  transition: 0.3s;
 }
 
 button:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 40px #ff9800;
 }
 
 /* RESULTADO */
@@ -145,14 +138,13 @@ button:hover {
   color: #ff9800;
 }
 
-/* 🔥 CATÁLOGO MEJORADO */
+/* 🔥 CATÁLOGO */
 .catalogo {
   padding: 60px;
 }
 
 .catalogo h2 {
   text-align: center;
-  font-size: 32px;
   margin-bottom: 40px;
 }
 
@@ -167,7 +159,6 @@ button:hover {
   padding: 20px;
   border-radius: 18px;
   text-align: center;
-  transition: 0.3s;
 }
 
 .item img {
@@ -175,17 +166,18 @@ button:hover {
   height: 220px;
   object-fit: cover;
   border-radius: 12px;
-  margin-bottom: 10px;
-  transition: transform 0.4s ease;
 }
 
-.item:hover img {
-  transform: scale(1.08);
-}
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+    padding: 40px;
+  }
 
-.item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #ff9800;
+  .info, .ruleta-area {
+    width: 100%;
+  }
 }
 </style>
 </head>
@@ -244,18 +236,6 @@ button:hover {
     <div class="item"><img src="dulce6.jpeg"><p>Dulce 6</p></div>
     <div class="item"><img src="dulce7.jpeg"><p>Dulce 7</p></div>
     <div class="item"><img src="dulce8.jpeg"><p>Dulce 8</p></div>
-    <div class="item"><img src="dulce9.jpeg"><p>Dulce 9</p></div>
-    <div class="item"><img src="dulce10.jpeg"><p>Dulce 10</p></div>
-    <div class="item"><img src="dulce11.jpeg"><p>Dulce 11</p></div>
-    <div class="item"><img src="dulce12.jpeg"><p>Dulce 12</p></div>
-    <div class="item"><img src="dulce13.jpeg"><p>Dulce 13</p></div>
-    <div class="item"><img src="dulce14.jpeg"><p>Dulce 14</p></div>
-    <div class="item"><img src="dulce15.jpeg"><p>Dulce 15</p></div>
-    <div class="item"><img src="dulce16.jpeg"><p>Dulce 16</p></div>
-    <div class="item"><img src="dulce17.jpeg"><p>Dulce 17</p></div>
-    <div class="item"><img src="dulce18.jpeg"><p>Dulce 18</p></div>
-    <div class="item"><img src="dulce19.jpeg"><p>Dulce 19</p></div>
-    <div class="item"><img src="dulce20.jpeg"><p>Dulce 20</p></div>
 
   </div>
 </section>
@@ -290,8 +270,7 @@ function enviar() {
   const nombre = document.getElementById("nombre").value || "Cliente";
 
   const mensaje = `Hola, soy ${nombre}.
-Quiero la ${resultadoFinal} de Dulces Clásicos.
-Quiero acordar el lugar de entrega.`;
+Quiero la ${resultadoFinal} de Dulces.`;
 
   window.open(`https://wa.me/5212711021374?text=${encodeURIComponent(mensaje)}`);
 }
