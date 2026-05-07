@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Conócenos | Mystery Box MX</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:#0a0a12;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* NAV */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    background:rgba(0,0,0,0.85);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(10px);
+}
+
+nav h1{
+    color:#ff9800;
+    letter-spacing:3px;
+    text-shadow:0 0 15px #ff9800;
+}
+
+nav div{
+    display:flex;
+    gap:20px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    background:rgba(255,152,0,0.1);
+    box-shadow:0 0 15px #ff9800;
+    transform:scale(1.05);
+}
+
+/* HERO */
+
+.hero{
+    height:85vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.78),rgba(0,0,0,0.78)),
+    url('fondopp5.png') center/cover no-repeat;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:0 90px;
+}
+
+.hero h1{
+    font-size:70px;
+    margin-bottom:20px;
+    text-shadow:0 0 20px #ff9800;
+}
+
+.hero p{
+    max-width:700px;
+    line-height:1.9;
+    opacity:0.8;
+    font-size:17px;
+}
+
+/* SECCIONES */
+
+.section{
+    padding:100px 90px;
+}
+
+.titulo{
+    border-left:5px solid #ff9800;
+    padding-left:20px;
+    margin-bottom:40px;
+}
+
+.titulo h2{
+    font-size:42px;
+    margin:0;
+    text-shadow:0 0 15px #ff9800;
+}
+
+.contenido{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:50px;
+}
+
+.texto{
+    width:55%;
+}
+
+.texto p{
+    line-height:1.9;
+    opacity:0.75;
+    text-align:justify;
+    margin-bottom:20px;
+}
+
+.foto{
+    width:40%;
+    height:380px;
+    border-radius:25px;
+    background:#121222;
+    border:2px dashed rgba(255,152,0,0.5);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:rgba(255,255,255,0.4);
+    font-size:20px;
+
+    transition:0.4s;
+}
+
+.foto:hover{
+    transform:scale(1.02);
+    box-shadow:0 0 25px rgba(255,152,0,0.5);
+}
+
+/* EQUIPO */
+
+.equipo{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    margin-top:50px;
+}
+
+.integrante{
+    background:#121222;
+    padding:25px;
+    border-radius:22px;
+    transition:0.4s;
+}
+
+.integrante:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px rgba(255,152,0,0.6);
+}
+
+.integrante .img{
+    width:100%;
+    height:220px;
+    border-radius:18px;
+    background:#1b1b2e;
+    border:2px dashed rgba(255,152,0,0.4);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:rgba(255,255,255,0.4);
+    margin-bottom:20px;
+}
+
+.integrante h3{
+    margin:0;
+    margin-bottom:10px;
+    font-size:23px;
+}
+
+.integrante p{
+    opacity:0.7;
+    line-height:1.7;
+    text-align:justify;
+}
+
+/* DOCENTE */
+
+.docente{
+    background:#121222;
+    padding:40px;
+    border-radius:25px;
+    margin-top:50px;
+
+    display:flex;
+    align-items:center;
+    gap:40px;
+}
+
+.docente .foto-docente{
+    width:280px;
+    height:320px;
+    border-radius:20px;
+    background:#1b1b2e;
+    border:2px dashed rgba(255,152,0,0.4);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:rgba(255,255,255,0.4);
+}
+
+.docente .texto-docente{
+    flex:1;
+}
+
+.docente h3{
+    font-size:32px;
+    margin-top:0;
+}
+
+.docente p{
+    opacity:0.75;
+    line-height:1.9;
+    text-align:justify;
+}
+
+/* FOOTER */
+
+footer{
+    background:#111;
+    padding:30px;
+    text-align:center;
+    opacity:0.7;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .hero{
+        padding:0 30px;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .section{
+        padding:70px 30px;
+    }
+
+    .contenido{
+        flex-direction:column;
+    }
+
+    .texto,
+    .foto{
+        width:100%;
+    }
+
+    .docente{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+
+<nav>
+
+    <h1>MYSTERY BOX</h1>
+
+    <div>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="conocenos.html">Conócenos</a>
+    </div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>Conoce el proyecto</h1>
+
+    <p>
+        Mystery Box MX es un proyecto académico desarrollado con el objetivo de combinar creatividad, emprendimiento y desarrollo tecnológico dentro de una propuesta interactiva enfocada en experiencias digitales.
+        <br><br>
+        El proyecto busca demostrar cómo el diseño web, la experiencia de usuario y las estrategias de sorpresa controlada pueden integrarse para construir una idea innovadora y funcional.
+    </p>
+
+</section>
+
+<!-- SOBRE EL PROYECTO -->
+
+<section class="section">
+
+    <div class="titulo">
+        <h2>¿Qué es Mystery Box MX?</h2>
+    </div>
+
+    <div class="contenido">
+
+        <div class="texto">
+
+            <p>
+                Mystery Box MX es una propuesta basada en el concepto de cajas sorpresa, donde el usuario adquiere una experiencia construida alrededor de la expectativa, el misterio y la emoción del descubrimiento.
+            </p>
+
+            <p>
+                La idea principal consiste en ofrecer diferentes categorías de cajas temáticas que contienen productos seleccionados previamente, manteniendo oculto el contenido exacto hasta el momento de apertura. Este enfoque busca generar una interacción diferente a la compra tradicional, transformando el proceso de adquisición en una experiencia más dinámica e inmersiva.
+            </p>
+
+            <p>
+                El proyecto integra elementos de diseño visual, identidad de marca, experiencia de usuario y programación web para desarrollar una plataforma moderna, funcional y atractiva. Además, incorpora conceptos relacionados con comportamiento del consumidor y percepción de valor, buscando entender cómo factores como la anticipación y la sorpresa pueden influir en la experiencia de compra.
+            </p>
+
+        </div>
+
+        <div class="foto">
+            Espacio para fotografía del proyecto
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ESCUELA -->
+
+<section class="section">
+
+    <div class="titulo">
+        <h2>Institución educativa</h2>
+    </div>
+
+    <div class="contenido">
+
+        <div class="foto">
+            Espacio para fotografía del plantel
+        </div>
+
+        <div class="texto">
+
+            <p>
+                Este proyecto fue desarrollado por estudiantes del Colegio de Bachilleres del Estado de Veracruz Plantel 12, institución educativa enfocada en la formación académica y técnica de nivel medio superior.
+            </p>
+
+            <p>
+                El trabajo fue realizado dentro de la capacitación de Programación de Computadoras, específicamente en la materia de Emprendimiento, donde se busca que los estudiantes desarrollen propuestas innovadoras aplicando conocimientos tecnológicos, creatividad y pensamiento estratégico.
+            </p>
+
+            <p>
+                La finalidad de este proyecto es demostrar la capacidad de integrar programación, diseño web y desarrollo de ideas de negocio dentro de una plataforma funcional que combine tecnología y experiencia de usuario.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- OBJETIVO -->
+
+<section class="section">
+
+    <div class="titulo">
+        <h2>Objetivo del proyecto</h2>
+    </div>
+
+    <div class="contenido">
+
+        <div class="texto">
+
+            <p>
+                El principal objetivo de Mystery Box MX es construir una experiencia digital innovadora que combine entretenimiento, interacción y comercio electrónico dentro de un mismo entorno.
+            </p>
+
+            <p>
+                A través de este proyecto buscamos aplicar conocimientos adquiridos en programación, diseño visual y emprendimiento para desarrollar una plataforma moderna con identidad propia. También buscamos comprender cómo el diseño y la experiencia de usuario pueden influir en la percepción de valor y en el interés del consumidor.
+            </p>
+
+            <p>
+                Además del aspecto técnico, el proyecto representa una oportunidad para desarrollar habilidades de trabajo en equipo, planeación, organización y resolución de problemas, elementos fundamentales dentro del desarrollo profesional y académico.
+            </p>
+
+        </div>
+
+        <div class="foto">
+            Espacio para mockup o interfaz
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EQUIPO -->
+
+<section class="section">
+
+    <div class="titulo">
+        <h2>Equipo de desarrollo</h2>
+    </div>
+
+    <div class="equipo">
+
+        <div class="integrante">
+
+            <div class="img">
+                Foto integrante
+            </div>
+
+            <h3>Romero Rivera Alan Daniel</h3>
+
+            <p>
+                Participante en el desarrollo general del proyecto, diseño conceptual y estructura de la plataforma digital.
+            </p>
+
+        </div>
+
+        <div class="integrante">
+
+            <div class="img">
+                Foto integrante
+            </div>
+
+            <h3>Mendoza Camacho Cedric Noel</h3>
+
+            <p>
+                Participante en la organización del proyecto y desarrollo de ideas relacionadas con identidad visual y experiencia del usuario.
+            </p>
+
+        </div>
+
+        <div class="integrante">
+
+            <div class="img">
+                Foto integrante
+            </div>
+
+            <h3>Ramirez Buendia Miguel</h3>
+
+            <p>
+                Participante en la planeación del proyecto y apoyo en el desarrollo de la propuesta de emprendimiento.
+            </p>
+
+        </div>
+
+        <div class="integrante">
+
+            <div class="img">
+                Foto integrante
+            </div>
+
+            <h3>Martinez Hernandes Jesus Adrian</h3>
+
+            <p>
+                Participante en la integración de ideas creativas y estructura general de la propuesta digital.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- DOCENTE -->
+
+<section class="section">
+
+    <div class="titulo">
+        <h2>Docente responsable</h2>
+    </div>
+
+    <div class="docente">
+
+        <div class="foto-docente">
+            Fotografía docente
+        </div>
+
+        <div class="texto-docente">
+
+            <h3>LIC. Ivone Bautista Basquez</h3>
+
+            <p>
+                Docente responsable de la materia de Emprendimiento y asesora académica del proyecto Mystery Box MX.
+            </p>
+
+            <p>
+                Su orientación permitió desarrollar la propuesta desde una perspectiva organizacional y estratégica, impulsando el análisis de ideas de negocio, estructura del proyecto y presentación profesional.
+            </p>
+
+            <p>
+                Gracias al acompañamiento académico proporcionado durante el desarrollo del proyecto, fue posible integrar conocimientos técnicos y creativos dentro de una experiencia funcional y estructurada.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    2026 Mystery Box MX — Todos los derechos reservados
+</footer>
+
+</body>
+</html>
