@@ -483,28 +483,31 @@ function girar(){
     const resultado = document.getElementById("resultado");
     const boton = document.getElementById("boton");
 
-    resultado.innerHTML = "Asignando caja...";
-
-    /* CAJA ALEATORIA */
+    /* NUMERO ALEATORIO */
     const numero = Math.floor(Math.random() * 5) + 1;
 
-    resultadoFinal = "Caja " + numero;
+    /* 
+    CADA CAJA OCUPA 72 GRADOS
+    SE AJUSTA PARA QUE LA FLECHA COINCIDA
+    */
 
-    /* POSICIONES EXACTAS */
     const posiciones = {
         1: 0,
-        2: 72,
-        3: 144,
-        4: 216,
-        5: 288
+        2: -72,
+        3: -144,
+        4: -216,
+        5: -288
     };
 
-    /* GIRO CORRECTO */
-    const giro = 3600 - posiciones[numero];
+    const gradosFinales = 3600 + posiciones[numero];
 
-    ruleta.style.transform = `rotate(${giro}deg)`;
+    ruleta.style.transform = `rotate(${gradosFinales}deg)`;
+
+    resultado.innerHTML = "Asignando caja...";
 
     setTimeout(() => {
+
+        resultadoFinal = "Caja " + numero;
 
         resultado.innerHTML = "Te tocó: " + resultadoFinal;
 
