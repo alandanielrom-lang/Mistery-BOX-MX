@@ -1,195 +1,386 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Productos - Mystery Box</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Productos | Mystery Box MX</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #0a0a12;
-  color: white;
+
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:#0a0a12;
+    color:white;
+    overflow-x:hidden;
 }
 
 /* NAV */
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  background: rgba(0,0,0,0.8);
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    background:rgba(0,0,0,0.85);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(10px);
 }
 
-nav h1 {
-  color: #ff9800;
-  letter-spacing: 2px;
+nav h1{
+    color:#ff9800;
+    letter-spacing:3px;
+    text-shadow:0 0 15px #ff9800;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
+nav div{
+    display:flex;
+    gap:20px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    background:rgba(255,152,0,0.1);
+    box-shadow:0 0 15px #ff9800;
+    transform:scale(1.05);
 }
 
 /* HERO */
-.hero {
-  height: 60vh;
-  background:
-    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+
+.hero{
+    height:60vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
     url('fondopp4.png') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:0 30px;
 }
 
-.hero h2 {
-  font-size: 50px;
-  text-shadow: 0 0 20px #ff9800;
+.hero h2{
+    font-size:60px;
+    text-shadow:0 0 20px #ff9800;
+}
+
+/* TITULOS */
+
+.titulo-area{
+    padding:70px 90px 20px 90px;
+}
+
+.titulo-box{
+    border-left:5px solid #ff9800;
+    padding-left:20px;
+}
+
+.titulo-box h2{
+    margin:0;
+    font-size:42px;
+    text-shadow:0 0 15px #ff9800;
+}
+
+.titulo-box p{
+    margin-top:15px;
+    opacity:0.75;
+    line-height:1.9;
+    max-width:1000px;
+    text-align:justify;
 }
 
 /* SECCIONES */
-.section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 80px;
-  gap: 40px;
+
+.section{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:50px;
+    padding:60px 90px;
 }
 
-.section img {
-  width: 45%;
-  border-radius: 20px;
-  transition: 0.3s;
-  filter: brightness(0.85);
+.section img{
+    width:45%;
+    border-radius:25px;
+    transition:0.4s;
+    filter:brightness(0.9);
 }
 
-.section img:hover {
-  transform: scale(1.05);
-  filter: brightness(1);
+.section img:hover{
+    transform:scale(1.03);
+    filter:brightness(1);
 }
 
-.text {
-  width: 50%;
+.text{
+    width:50%;
 }
 
-.text h3 {
-  font-size: 35px;
-  margin-bottom: 15px;
+.text h3{
+    font-size:40px;
+    margin-bottom:20px;
+    text-shadow:0 0 10px rgba(255,152,0,0.5);
 }
 
-.text p {
-  opacity: 0.7;
-  line-height: 1.6;
-  text-align: justify;
+.text p{
+    opacity:0.75;
+    line-height:1.9;
+    text-align:justify;
 }
 
-.text button {
-  margin-top: 15px;
-  padding: 12px 20px;
-  background: linear-gradient(45deg, #ff9800, #ff5722);
-  border: none;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
+/* BOTONES */
+
+.text button{
+    margin-top:20px;
+    padding:15px 28px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(45deg,#ff9800,#ff5722);
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 0 15px #ff9800;
+    font-size:15px;
 }
 
-.text button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px #ff9800;
+.text button:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 30px #ff9800;
 }
 
-/* PROXIMAMENTE */
-.prox {
-  margin-top: 15px;
-  color: #ff9800;
-  font-weight: bold;
-  text-shadow: 0 0 10px #ff9800;
+/* BLOQUEADAS */
+
+.bloqueada{
+    opacity:0.45;
+    filter:grayscale(1);
 }
+
+.bloqueada button{
+    background:#333;
+    cursor:not-allowed;
+    box-shadow:none;
+}
+
+.bloqueada button:hover{
+    transform:none;
+    box-shadow:none;
+}
+
+/* FOOTER */
+
+footer{
+    background:#111;
+    padding:30px;
+    text-align:center;
+    opacity:0.7;
+    margin-top:60px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .section{
+        flex-direction:column;
+        padding:60px 30px;
+    }
+
+    .section img,
+    .text{
+        width:100%;
+    }
+
+    .hero h2{
+        font-size:45px;
+    }
+
+    .titulo-area{
+        padding:50px 30px 20px 30px;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
+
 <nav>
-  <h1>MYSTERY BOX</h1>
-  <div>
-    <a href="index.html">Inicio</a>
-  </div>
+
+    <h1>MYSTERY BOX</h1>
+
+    <div>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="conocenos.html">Conócenos</a>
+    </div>
+
 </nav>
 
+<!-- HERO -->
+
 <section class="hero">
-  <h2>Explora nuestras categorías</h2>
+
+    <h2>Explora nuestras colecciones</h2>
+
 </section>
 
-<!-- GAMER -->
+<!-- FESTIVIDADES -->
+
+<section class="titulo-area">
+
+    <div class="titulo-box">
+
+        <h2>Colecciones Temporales</h2>
+
+        <p>
+            Las colecciones temporales representan lanzamientos especiales desarrollados para fechas relevantes y temporadas específicas del año. 
+            Estas ediciones funcionan bajo un modelo de disponibilidad limitada, buscando generar una experiencia más exclusiva y dinámica.
+            <br><br>
+            Cada colección es diseñada considerando tendencias visuales, contexto emocional y percepción de valor, permitiendo que cada lanzamiento mantenga una identidad única dentro de la plataforma.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- MAQUILLAJE -->
+
 <section class="section">
-  <div class="text">
-    <h3>Cajas Gamer</h3>
-    <p>
-La Mystery Box gamer está pensada para quienes buscan una experiencia vinculada al entorno digital 
-y al entretenimiento interactivo. Cada caja contiene elementos seleccionados dentro del mundo gaming, 
-que pueden variar entre accesorios, contenido digital o artículos temáticos.<br><br>
 
-El sistema de asignación se basa en una lógica aleatoria que introduce un componente de incertidumbre, 
-haciendo que cada compra se convierta en una experiencia distinta. Esto permite mantener un alto nivel 
-de interés y expectativa en cada apertura.<br><br>
+    <div class="text">
 
-Más allá del contenido físico, esta categoría busca conectar con la emoción de lo desconocido, integrando 
-la sorpresa como parte central del proceso.
-    </p>
-    <button onclick="window.location.href='gamer.html'">
-      Ver opciones
-    </button>
-  </div>
-  <img src="cajav1.png">
+        <h3>Día de la Madre</h3>
+
+        <p>
+            La edición “Día de la Madre” fue desarrollada como una colección temática enfocada en belleza, estética y cuidado personal. 
+            Esta línea busca transformar el concepto tradicional de regalo en una experiencia basada en sorpresa y presentación visual.
+            <br><br>
+            Cada caja integra productos seleccionados estratégicamente para mantener coherencia temática y percepción de calidad, considerando factores como diseño, utilidad y experiencia emocional.
+            <br><br>
+            El objetivo de esta colección es ofrecer una experiencia más personalizada y significativa, donde el misterio del contenido forme parte fundamental del valor del producto.
+        </p>
+
+        <button onclick="window.location.href='belleza.html'">
+            Obtener caja
+        </button>
+
+    </div>
+
+    <img src="cajam1.png">
+
+</section>
+
+<!-- HALLOWEEN -->
+
+<section class="section bloqueada">
+
+    <img src="cajah1.png">
+
+    <div class="text">
+
+        <h3>Halloween</h3>
+
+        <p>
+            Próxima colección inspirada en estética oscura y experiencias visuales inmersivas. 
+            Esta edición se encuentra actualmente en fase de desarrollo conceptual y planeación visual.
+            <br><br>
+            El lanzamiento buscará integrar elementos temáticos relacionados con entretenimiento, ambientación y contenido exclusivo alineado con la temporada.
+        </p>
+
+        <button disabled>
+            Próximamente
+        </button>
+
+    </div>
+
+</section>
+
+<!-- NAVIDAD -->
+
+<section class="section bloqueada">
+
+    <div class="text">
+
+        <h3>Navidad</h3>
+
+        <p>
+            Colección especial de temporada enfocada en experiencias de regalo y presentación premium. 
+            Esta línea será desarrollada para integrar artículos seleccionados estratégicamente bajo una temática navideña.
+            <br><br>
+            La propuesta busca generar una experiencia enfocada en sorpresa, exclusividad y valor emocional durante fechas decembrinas.
+        </p>
+
+        <button disabled>
+            Próximamente
+        </button>
+
+    </div>
+
+    <img src="cajan1.png">
+
+</section>
+
+<!-- PERMANENTES -->
+
+<section class="titulo-area">
+
+    <div class="titulo-box">
+
+        <h2>Línea Permanente</h2>
+
+        <p>
+            La línea permanente está diseñada para mantenerse disponible durante todo el año, ofreciendo experiencias constantes basadas en sorpresa controlada y descubrimiento.
+            <br><br>
+            Estas colecciones representan la base principal de Mystery Box MX, integrando categorías desarrolladas para mantener variedad y disponibilidad continua dentro de la plataforma.
+        </p>
+
+    </div>
+
 </section>
 
 <!-- DULCES -->
+
 <section class="section">
-  <img src="cajad1.png">
-  <div class="text">
-    <h3>Cajas de Dulces</h3>
-    <p>
-La Mystery Box de dulces está diseñada para ofrecer una experiencia impredecible y envolvente. 
-Cada caja reúne una selección cuidadosamente elegida de productos que combinan sabores, intensidades 
-y sensaciones distintas.<br><br>
 
-Existen múltiples variantes, desde opciones suaves y tradicionales hasta combinaciones intensas con 
-contrastes entre lo dulce y lo picante. Cada selección responde a un sistema aleatorio único.<br><br>
+    <div class="text">
 
-El objetivo no es solo consumir, sino descubrir, generando expectativa en cada apertura.
-    </p>
+        <h3>Cajas de Dulces</h3>
 
-    <button onclick="window.location.href='dulces.html'">
-      Ver opciones
-    </button>
+        <p>
+            La colección de dulces está enfocada en experiencias sensoriales y variedad gastronómica. 
+            Cada caja contiene productos seleccionados estratégicamente considerando sabor, textura, intensidad y presentación visual.
+            <br><br>
+            El sistema de cajas sorpresa permite mantener una experiencia impredecible en cada compra, donde la emoción del descubrimiento se convierte en parte esencial del proceso.
+            <br><br>
+            Además de funcionar como una experiencia de entretenimiento, esta línea busca ofrecer una combinación equilibrada entre variedad, sorpresa y percepción de valor.
+        </p>
 
-    <div class="prox">
-      Dulces picantes y mixtos: Próximamente
+        <button onclick="window.location.href='dulces.html'">
+            Ver opciones
+        </button>
+
     </div>
 
-  </div>
+    <img src="cajad1.png">
+
 </section>
 
-<!-- BASKET -->
-<section class="section">
-  <div class="text">
-    <h3>Cajas Basket</h3>
-    <p>
-La Mystery Box basket está orientada a quienes se identifican con el estilo y la cultura del baloncesto. 
-Cada caja incluye elementos relacionados con este entorno.<br><br>
-
-Cada selección se realiza mediante un sistema aleatorio que garantiza una experiencia distinta en cada compra.<br><br>
-
-Más allá del producto, se busca transmitir dinamismo, identidad y sorpresa en cada entrega.
-    </p>
-    <button onclick="window.location.href='ruleta-basket.html'">
-      Ver opciones
-    </button>
-  </div>
-  <img src="cajab1.png">
-</section>
+<footer>
+    2026 Mystery Box MX — Todos los derechos reservados
+</footer>
 
 </body>
 </html>
