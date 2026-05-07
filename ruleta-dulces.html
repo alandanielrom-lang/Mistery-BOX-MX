@@ -59,7 +59,6 @@ nav a:hover{
 
 .hero{
     height:70vh;
-
     background:
     linear-gradient(rgba(0,0,0,0.78),rgba(0,0,0,0.78)),
     url('cajad1.png') center/cover no-repeat;
@@ -120,76 +119,43 @@ nav a:hover{
     text-align:center;
 }
 
-.ruleta-container{
-    position:relative;
+/* SELECTOR */
+
+.selector-box{
     width:420px;
     margin:auto;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
 }
 
-.ruleta{
-    width:420px;
-    height:420px;
-    border-radius:50%;
-    border:10px solid #ff9800;
-    overflow:hidden;
-    position:relative;
-    transition:transform 4s ease-out;
-    box-shadow:0 0 30px rgba(255,152,0,0.5);
-}
+/* CAJAS */
 
-/* SECTORES */
-
-.sector{
-    position:absolute;
-    width:50%;
-    height:50%;
-    transform-origin:100% 100%;
+.caja{
+    background:#17172a;
+    border:2px solid rgba(255,255,255,0.08);
+    height:120px;
+    border-radius:20px;
     display:flex;
     align-items:center;
     justify-content:center;
-}
-
-.sector span{
-    transform:rotate(36deg);
-    font-size:16px;
+    font-size:24px;
     font-weight:bold;
+    transition:0.2s;
+    box-shadow:0 0 10px rgba(0,0,0,0.5);
 }
 
-.s1{
-    transform:rotate(0deg) skewY(-30deg);
-    background:#1b1b2e;
+.caja:nth-child(5){
+    grid-column:span 2;
+    width:50%;
+    margin:auto;
 }
 
-.s2{
-    transform:rotate(72deg) skewY(-30deg);
-    background:#26263d;
-}
-
-.s3{
-    transform:rotate(144deg) skewY(-30deg);
-    background:#1b1b2e;
-}
-
-.s4{
-    transform:rotate(216deg) skewY(-30deg);
-    background:#26263d;
-}
-
-.s5{
-    transform:rotate(288deg) skewY(-30deg);
-    background:#1b1b2e;
-}
-
-/* FLECHA */
-
-.flecha{
-    position:absolute;
-    top:-30px;
-    left:50%;
-    transform:translateX(-50%);
-    font-size:45px;
-    color:#ff9800;
-    text-shadow:0 0 15px #ff9800;
+.activa{
+    background:linear-gradient(45deg,#ff9800,#ff5722);
+    color:white;
+    transform:scale(1.05);
+    box-shadow:0 0 30px #ff9800;
 }
 
 /* INPUT */
@@ -310,13 +276,8 @@ footer{
         width:100%;
     }
 
-    .ruleta-container{
-        width:320px;
-    }
-
-    .ruleta{
-        width:320px;
-        height:320px;
+    .selector-box{
+        width:100%;
     }
 
     .grid{
@@ -367,13 +328,15 @@ footer{
     <h1>Colección Mystery Dulces</h1>
 
     <p>
-        Una experiencia enfocada en descubrimiento, variedad y sorpresa. 
+        Una experiencia enfocada en descubrimiento, variedad y sorpresa.
         Cada caja está diseñada para combinar distintos tipos de dulces y generar una experiencia dinámica donde el usuario no solo recibe productos, sino también expectativa y entretenimiento.
     </p>
 
 </section>
 
 <div class="main">
+
+    <!-- TEXTO -->
 
     <div class="info">
 
@@ -392,7 +355,7 @@ footer{
         </p>
 
         <p>
-            El sistema funciona mediante una ruleta aleatoria que asigna automáticamente una caja única. Una vez obtenido el resultado, podrás enviar directamente tu pedido mediante WhatsApp para coordinar la entrega.
+            El sistema funciona mediante una selección dinámica iluminada que asigna automáticamente una caja única. Una vez obtenido el resultado, podrás enviar directamente tu pedido mediante WhatsApp para coordinar la entrega.
         </p>
 
     </div>
@@ -401,19 +364,13 @@ footer{
 
     <div class="ruleta-area">
 
-        <div class="ruleta-container">
+        <div class="selector-box">
 
-            <div class="flecha">▼</div>
-
-            <div class="ruleta" id="ruleta">
-
-                <div class="sector s1"><span>Caja 1</span></div>
-                <div class="sector s2"><span>Caja 2</span></div>
-                <div class="sector s3"><span>Caja 3</span></div>
-                <div class="sector s4"><span>Caja 4</span></div>
-                <div class="sector s5"><span>Caja 5</span></div>
-
-            </div>
+            <div class="caja">Caja 1</div>
+            <div class="caja">Caja 2</div>
+            <div class="caja">Caja 3</div>
+            <div class="caja">Caja 4</div>
+            <div class="caja">Caja 5</div>
 
         </div>
 
@@ -422,7 +379,7 @@ footer{
         <br>
 
         <button id="boton" onclick="girar()">
-            Girar ruleta
+            Girar selección
         </button>
 
         <div class="resultado" id="resultado"></div>
@@ -438,7 +395,7 @@ footer{
     <h2>Productos posibles dentro de las cajas</h2>
 
     <p>
-        Los productos mostrados representan algunos ejemplos de artículos que pueden encontrarse dentro de las distintas cajas de la colección. 
+        Los productos mostrados representan algunos ejemplos de artículos que pueden encontrarse dentro de las distintas cajas de la colección.
         La selección final depende completamente del sistema aleatorio de asignación utilizado por la plataforma.
     </p>
 
@@ -453,12 +410,12 @@ footer{
         <div class="item"><img src="dulce7.jpeg"><p>Peelerz sabor granadilla</p></div>
         <div class="item"><img src="dulce8.jpeg"><p>Peelerz sabor piña</p></div>
         <div class="item"><img src="dulce9.jpeg"><p>Peelerz sabor manzana</p></div>
-        <div class="item"><img src="dulce10.jpeg"><p>Vualá Swiss Roll</p></div>
+        <div class="item"><img src="dulce10.jpeg"><p>Vuala Swiss Roll</p></div>
         <div class="item"><img src="dulce11.jpeg"><p>Bon O Bon sabor fresa</p></div>
         <div class="item"><img src="dulce12.jpeg"><p>Cheetos Flamin' Hot</p></div>
         <div class="item"><img src="dulce13.jpeg"><p>Mini Payaso Ricolino</p></div>
         <div class="item"><img src="dulce14.jpeg"><p>Gelatina Konjac sabor uva</p></div>
-        <div class="item"><img src="dulce15.jpeg"><p>Gomitas rellenas sabor uva verde Bo Bo Le</p></div>
+        <div class="item"><img src="dulce15.jpeg"><p>Gomitas rellenas Bo Bo Le</p></div>
 
     </div>
 
@@ -479,60 +436,43 @@ function girar(){
 
     girado = true;
 
-    const ruleta = document.getElementById("ruleta");
+    const cajas = document.querySelectorAll(".caja");
     const resultado = document.getElementById("resultado");
     const boton = document.getElementById("boton");
 
-    resultado.innerHTML = "Asignando caja...";
+    resultado.innerHTML = "Seleccionando caja...";
 
-    /* CAJA ALEATORIA */
-    const numero = Math.floor(Math.random() * 5) + 1;
+    let vueltas = 0;
 
-    /*
-    AJUSTE REAL DE POSICIONES
-    PARA QUE LA FLECHA SUPERIOR
-    APUNTE EXACTAMENTE
-    */
+    const final = Math.floor(Math.random() * 5);
 
-    let grados = 3600;
+    const intervalo = setInterval(() => {
 
-    switch(numero){
+        cajas.forEach(c => c.classList.remove("activa"));
 
-        case 1:
-            grados += -36;
-        break;
+        cajas[vueltas % 5].classList.add("activa");
 
-        case 2:
-            grados += -108;
-        break;
+        vueltas++;
 
-        case 3:
-            grados += -180;
-        break;
+        if(vueltas > 20 + final){
 
-        case 4:
-            grados += -252;
-        break;
+            clearInterval(intervalo);
 
-        case 5:
-            grados += -324;
-        break;
+            cajas.forEach(c => c.classList.remove("activa"));
 
-    }
+            cajas[final].classList.add("activa");
 
-    ruleta.style.transform = `rotate(${grados}deg)`;
+            resultadoFinal = "Caja " + (final + 1);
 
-    setTimeout(() => {
+            resultado.innerHTML =
+            "Te tocó: " + resultadoFinal;
 
-        resultadoFinal = "Caja " + numero;
+            boton.innerHTML = "Enviar pedido";
+            boton.onclick = enviar;
 
-        resultado.innerHTML =
-        "Te tocó: " + resultadoFinal;
+        }
 
-        boton.innerHTML = "Enviar pedido";
-        boton.onclick = enviar;
-
-    }, 4000);
+    },120);
 
 }
 
