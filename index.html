@@ -1,215 +1,551 @@
-<!-- 🔥 TÍTULO FESTIVIDADES -->
-<section style="padding: 20px 80px 0px 80px;">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <div style="
-    border-left: 5px solid #ff9800;
-    padding-left: 20px;
-    margin-bottom: 40px;
-  ">
-    <h2 style="
-      font-size: 40px;
-      margin: 0;
-      text-shadow: 0 0 15px #ff9800;
-    ">
-      Colecciones Temporales
-    </h2>
+<title>Mystery Box MX</title>
 
-    <p style="
-      opacity: 0.7;
-      max-width: 900px;
-      line-height: 1.7;
-      margin-top: 15px;
-      text-align: justify;
-    ">
-      Las colecciones temporales representan una línea experimental dentro de Mystery Box MX. 
-      Estas ediciones son desarrolladas con base en temporadas, celebraciones y fechas relevantes del calendario, 
-      permitiendo adaptar la experiencia de compra a contextos emocionales específicos.
-      <br><br>
-      Cada lanzamiento funciona bajo un modelo de disponibilidad limitada, conocido comercialmente como “drop”. 
-      Esto significa que las cajas únicamente permanecen activas durante un periodo reducido, generando una experiencia más exclusiva y dinámica.
-      <br><br>
-      El contenido de cada edición es seleccionado considerando tendencias actuales, estética visual, funcionalidad y percepción de valor, 
-      buscando que cada caja mantenga coherencia temática y una experiencia memorable.
-    </p>
-  </div>
+<style>
 
-</section>
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:#0a0a12;
+    color:white;
+    overflow-x:hidden;
+}
 
-<!-- 🔥 CAJAS FESTIVIDAD -->
-<section class="preview">
+/* NAV */
 
-  <div class="card">
-    <img src="cajam1.png">
-    <h3>Día de la Madre</h3>
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    background:rgba(0,0,0,0.85);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(10px);
+}
 
-    <p style="
-      opacity:0.7;
-      line-height:1.6;
-      text-align:justify;
-    ">
-      Edición especial diseñada para la celebración del Día de la Madre. 
-      Esta colección integra productos enfocados en belleza, estética y cuidado personal, 
-      seleccionados para generar una experiencia de regalo más significativa y emocional.
-      <br><br>
-      La caja busca combinar presentación visual, sorpresa y utilidad en una sola experiencia.
-    </p>
+nav h1{
+    color:#ff9800;
+    letter-spacing:3px;
+    text-shadow:0 0 15px #ff9800;
+}
 
-    <button onclick="window.location.href='belleza.html'">
-      Obtener caja
-    </button>
-  </div>
+nav div{
+    display:flex;
+    gap:20px;
+}
 
-  <div class="card" style="
-    opacity:0.5;
-    filter: grayscale(1);
-  ">
-    <img src="cajah1.png">
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:12px;
+    transition:0.3s;
+}
 
-    <h3>Halloween</h3>
+nav a:hover{
+    background:rgba(255,152,0,0.1);
+    box-shadow:0 0 15px #ff9800;
+    transform:scale(1.05);
+}
 
-    <p style="
-      opacity:0.6;
-      line-height:1.6;
-      text-align:justify;
-    ">
-      Próxima colección temática inspirada en experiencias visuales inmersivas y estética oscura.
-      Actualmente en desarrollo.
-    </p>
+/* HERO */
 
-    <button disabled style="
-      background:#333;
-      cursor:not-allowed;
-    ">
-      Próximamente
-    </button>
-  </div>
+.hero{
+    height:95vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
+    url('fondopp1.png') center/cover no-repeat;
 
-  <div class="card" style="
-    opacity:0.5;
-    filter: grayscale(1);
-  ">
-    <img src="cajan1.png">
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:0 90px;
+}
 
-    <h3>Navidad</h3>
+.hero h2{
+    font-size:65px;
+    max-width:700px;
+    margin-bottom:20px;
+    text-shadow:0 0 20px #ff9800;
+}
 
-    <p style="
-      opacity:0.6;
-      line-height:1.6;
-      text-align:justify;
-    ">
-      Colección de temporada enfocada en experiencias de regalo y artículos seleccionados para fechas decembrinas.
-    </p>
+.hero p{
+    max-width:650px;
+    opacity:0.8;
+    line-height:1.8;
+    font-size:17px;
+}
 
-    <button disabled style="
-      background:#333;
-      cursor:not-allowed;
-    ">
-      Próximamente
-    </button>
-  </div>
+.hero button{
+    width:220px;
+    margin-top:30px;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(45deg,#ff9800,#ff5722);
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+    box-shadow:0 0 20px #ff9800;
+}
 
-</section>
+.hero button:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 30px #ff9800;
+}
 
-<!-- 🔥 TÍTULO DULCES -->
-<section style="padding: 20px 80px 0px 80px;">
+/* SECCIONES */
 
-  <div style="
-    border-left: 5px solid #ff9800;
-    padding-left: 20px;
-    margin-bottom: 40px;
-  ">
-    <h2 style="
-      font-size: 40px;
-      margin: 0;
-      text-shadow: 0 0 15px #ff9800;
-    ">
-      Línea Permanente
-    </h2>
+.section{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:50px;
+    padding:100px 90px;
+}
 
-    <p style="
-      opacity: 0.7;
-      max-width: 900px;
-      line-height: 1.7;
-      margin-top: 15px;
-      text-align: justify;
-    ">
-      A diferencia de las ediciones temporales, la línea permanente mantiene disponibilidad continua durante el año. 
-      Estas cajas están diseñadas para ofrecer experiencias constantes de descubrimiento y variedad, 
-      permitiendo que el usuario pueda acceder a ellas en cualquier momento.
-      <br><br>
-      Actualmente, la categoría de dulces funciona como la principal línea estable de Mystery Box MX, 
-      integrando productos nacionales e internacionales seleccionados bajo criterios de sabor, textura, presentación y experiencia sensorial.
-    </p>
-  </div>
+.section img{
+    width:45%;
+    border-radius:25px;
+    transition:0.4s;
+}
 
-</section>
+.section img:hover{
+    transform:scale(1.03);
+}
 
-<!-- 🔥 DULCES -->
-<section class="preview">
+.text{
+    width:50%;
+}
 
-  <div class="card">
-    <img src="cajad1.png">
-
-    <h3>Dulces</h3>
-
-    <p style="
-      opacity:0.7;
-      line-height:1.6;
-      text-align:justify;
-    ">
-      Colección enfocada en experiencias sensoriales y variedad gastronómica. 
-      Cada caja contiene una selección aleatoria de productos dulces cuidadosamente organizados para mantener sorpresa y diversidad.
-    </p>
-
-    <button onclick="window.location.href='dulces.html'">
-      Explorar
-    </button>
-  </div>
-
-</section>
-
-<!-- 🔥 NUEVO BOTÓN CONÓCENOS -->
-<section style="
-  padding: 40px 80px 100px 80px;
-  text-align:center;
-">
-
-  <h2 style="
+.text h3{
     font-size:40px;
     margin-bottom:20px;
-    text-shadow:0 0 15px #ff9800;
-  ">
-    Conoce el proyecto
-  </h2>
+    text-shadow:0 0 10px rgba(255,152,0,0.5);
+}
 
-  <p style="
-    max-width:900px;
-    margin:auto;
+.text p{
+    opacity:0.75;
+    line-height:1.9;
+    text-align:justify;
+}
+
+/* TITULOS */
+
+.titulo-area{
+    padding:40px 90px 10px 90px;
+}
+
+.titulo-box{
+    border-left:5px solid #ff9800;
+    padding-left:20px;
+}
+
+.titulo-box h2{
+    font-size:42px;
+    margin:0;
+    text-shadow:0 0 15px #ff9800;
+}
+
+.titulo-box p{
+    max-width:950px;
     opacity:0.7;
     line-height:1.8;
     text-align:justify;
-  ">
-    Mystery Box MX nace como un proyecto enfocado en explorar nuevas formas de interacción digital dentro del comercio electrónico. 
-    La propuesta combina diseño web, experiencia de usuario y modelos de sorpresa controlada para construir una plataforma diferente a las tiendas tradicionales.
-    <br><br>
-    El objetivo principal del proyecto es analizar cómo factores como la incertidumbre, la expectativa y la presentación visual pueden influir en la percepción de valor del consumidor. 
-    Para ello, se desarrolló una estructura basada en categorías, experiencias temáticas y colecciones temporales.
-    <br><br>
-    Además del aspecto comercial, el proyecto funciona como una práctica de diseño y desarrollo web, integrando elementos de HTML, CSS y JavaScript para construir una experiencia funcional, estética e interactiva.
-  </p>
+    margin-top:15px;
+}
 
-  <button style="
-    margin-top:30px;
-    padding:15px 35px;
-    background:#ff9800;
+/* CARDS */
+
+.preview{
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    padding:50px 90px 90px 90px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:300px;
+    background:#121222;
+    border-radius:22px;
+    overflow:hidden;
+    transition:0.4s;
+    padding:20px;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 25px rgba(255,152,0,0.7);
+}
+
+.card img{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+    border-radius:18px;
+    transition:0.4s;
+}
+
+.card:hover img{
+    transform:scale(1.05);
+}
+
+.card h3{
+    margin-top:18px;
+    font-size:26px;
+}
+
+.card p{
+    opacity:0.7;
+    line-height:1.7;
+    text-align:justify;
+}
+
+.card button{
+    margin-top:15px;
+    width:100%;
+    padding:14px;
     border:none;
+    border-radius:12px;
+    background:linear-gradient(45deg,#ff9800,#ff5722);
     color:white;
     cursor:pointer;
-    border-radius:10px;
-    box-shadow:0 0 15px #ff9800;
     transition:0.3s;
-  ">
-    Conócenos
-  </button>
+    font-size:15px;
+}
+
+.card button:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px #ff9800;
+}
+
+/* BLOQUEADAS */
+
+.bloqueada{
+    opacity:0.5;
+    filter:grayscale(1);
+}
+
+.bloqueada button{
+    background:#333;
+    cursor:not-allowed;
+}
+
+/* CONOCENOS */
+
+.conocenos{
+    padding:80px 90px 120px 90px;
+    text-align:center;
+}
+
+.conocenos h2{
+    font-size:45px;
+    text-shadow:0 0 15px #ff9800;
+}
+
+.conocenos p{
+    max-width:1000px;
+    margin:auto;
+    line-height:1.9;
+    opacity:0.75;
+    text-align:justify;
+}
+
+.conocenos button{
+    margin-top:35px;
+    padding:16px 40px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(45deg,#ff9800,#ff5722);
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 0 15px #ff9800;
+}
+
+.conocenos button:hover{
+    transform:scale(1.08);
+}
+
+/* FOOTER */
+
+footer{
+    background:#111;
+    padding:30px;
+    text-align:center;
+    opacity:0.7;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .section{
+        flex-direction:column;
+        padding:70px 30px;
+    }
+
+    .section img,
+    .text{
+        width:100%;
+    }
+
+    .hero{
+        padding:0 30px;
+    }
+
+    .hero h2{
+        font-size:45px;
+    }
+
+    .preview{
+        padding:40px 20px;
+    }
+
+    .titulo-area{
+        padding:30px;
+    }
+
+    .conocenos{
+        padding:70px 30px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+
+<nav>
+
+    <h1>MYSTERY BOX</h1>
+
+    <div>
+        <a href="#">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="#conocenos">Conócenos</a>
+    </div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h2>La experiencia de lo inesperado</h2>
+
+    <p>
+        Mystery Box MX es una propuesta digital enfocada en transformar el modelo tradicional de compra en una experiencia interactiva basada en sorpresa controlada, expectativa y descubrimiento. 
+        Nuestro sistema integra diseño visual, selección estratégica de productos y dinámicas de experiencia de usuario para ofrecer algo más que una simple compra.
+        <br><br>
+        Cada caja representa una experiencia estructurada donde la emoción de descubrir forma parte fundamental del valor percibido del producto.
+    </p>
+
+    <button onclick="window.location.href='productos.html'">
+        Explorar colección
+    </button>
 
 </section>
+
+<!-- QUE HACEMOS -->
+
+<section class="section">
+
+    <div class="text">
+
+        <h3>¿Qué hacemos?</h3>
+
+        <p>
+            En Mystery Box MX trabajamos bajo un modelo de curaduría temática y experiencias de sorpresa. 
+            Cada colección es desarrollada considerando factores como tendencias visuales, percepción de valor, funcionalidad y coherencia estética.
+            <br><br>
+            Nuestro objetivo es construir experiencias digitales que generen expectativa antes, durante y después de la compra. 
+            Para ello, utilizamos conceptos relacionados con comportamiento del consumidor, anticipación emocional y presentación visual.
+            <br><br>
+            Más allá de vender productos individuales, buscamos crear una interacción donde el misterio y la sorpresa formen parte central de la experiencia.
+        </p>
+
+    </div>
+
+    <img src="fondopp3.png">
+
+</section>
+
+<!-- QUE VENDEMOS -->
+
+<section class="section">
+
+    <img src="fondopp2.png">
+
+    <div class="text">
+
+        <h3>¿Qué vendemos?</h3>
+
+        <p>
+            Actualmente operamos mediante dos líneas principales: colecciones permanentes y ediciones temporales por festividad.
+            <br><br>
+            Las colecciones permanentes están diseñadas para mantenerse disponibles durante todo el año, ofreciendo experiencias constantes basadas en categorías estables como dulces y experiencias sensoriales.
+            <br><br>
+            Por otro lado, las ediciones temporales funcionan bajo un modelo de disponibilidad limitada conocido como “drop”, donde las cajas se desarrollan específicamente para celebraciones o temporadas determinadas.
+            <br><br>
+            Cada caja contiene productos previamente seleccionados, aunque el contenido exacto permanece oculto hasta el momento de apertura para mantener la experiencia de sorpresa.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- TITULO FESTIVIDADES -->
+
+<section class="titulo-area">
+
+    <div class="titulo-box">
+
+        <h2>Colecciones Temporales</h2>
+
+        <p>
+            Las colecciones temporales representan lanzamientos especiales desarrollados para fechas relevantes del calendario. 
+            Estas ediciones son diseñadas considerando el contexto emocional de cada festividad, permitiendo crear experiencias más personalizadas y exclusivas.
+            <br><br>
+            Cada lanzamiento permanece disponible únicamente durante un tiempo limitado, generando una experiencia más dinámica y diferenciada.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- CARDS FESTIVIDAD -->
+
+<section class="preview">
+
+    <div class="card">
+
+        <img src="cajam1.png">
+
+        <h3>Día de la Madre</h3>
+
+        <p>
+            Edición especial enfocada en belleza y cuidado personal. 
+            Diseñada como una experiencia de regalo que combina estética, presentación y sorpresa dentro de una colección limitada.
+        </p>
+
+        <button onclick="window.location.href='belleza.html'">
+            Obtener caja
+        </button>
+
+    </div>
+
+    <div class="card bloqueada">
+
+        <img src="cajah1.png">
+
+        <h3>Halloween</h3>
+
+        <p>
+            Próxima colección temática inspirada en experiencias visuales inmersivas y estética oscura.
+        </p>
+
+        <button disabled>
+            Próximamente
+        </button>
+
+    </div>
+
+    <div class="card bloqueada">
+
+        <img src="cajan1.png">
+
+        <h3>Navidad</h3>
+
+        <p>
+            Colección de temporada enfocada en experiencias de regalo y contenido exclusivo.
+        </p>
+
+        <button disabled>
+            Próximamente
+        </button>
+
+    </div>
+
+</section>
+
+<!-- TITULO DULCES -->
+
+<section class="titulo-area">
+
+    <div class="titulo-box">
+
+        <h2>Línea Permanente</h2>
+
+        <p>
+            La línea permanente está diseñada para mantener disponibilidad continua durante todo el año. 
+            Estas colecciones buscan ofrecer experiencias constantes de descubrimiento y variedad, manteniendo el concepto principal de sorpresa controlada.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- CARD DULCES -->
+
+<section class="preview">
+
+    <div class="card">
+
+        <img src="cajad1.png">
+
+        <h3>Dulces</h3>
+
+        <p>
+            Colección enfocada en experiencias sensoriales y variedad gastronómica. 
+            Cada caja integra productos seleccionados para generar sorpresa, diversidad y descubrimiento.
+        </p>
+
+        <button onclick="window.location.href='dulces.html'">
+            Explorar
+        </button>
+
+    </div>
+
+</section>
+
+<!-- CONOCENOS -->
+
+<section class="conocenos" id="conocenos">
+
+    <h2>Conoce el proyecto</h2>
+
+    <p>
+        Mystery Box MX surge como un proyecto enfocado en explorar nuevas formas de interacción digital dentro del comercio electrónico y las experiencias de usuario.
+        <br><br>
+        La propuesta combina diseño web, identidad visual y dinámicas de sorpresa controlada para construir una plataforma interactiva que se diferencie de las tiendas tradicionales.
+        <br><br>
+        Además de funcionar como concepto comercial, el proyecto también representa una práctica de desarrollo web utilizando tecnologías como HTML, CSS y JavaScript, integrando elementos de diseño responsivo, animaciones y estructuras enfocadas en experiencia visual.
+        <br><br>
+        El objetivo principal es demostrar cómo la presentación, la expectativa y la interacción pueden influir en la percepción de valor dentro de un entorno digital.
+    </p>
+
+    <button>
+        Más información
+    </button>
+
+</section>
+
+<footer>
+    2026 Mystery Box MX — Todos los derechos reservados
+</footer>
+
+</body>
+</html>
