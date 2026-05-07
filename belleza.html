@@ -113,56 +113,47 @@ nav a:hover{
     margin-bottom:20px;
 }
 
-/* RULETA */
+/* RULETA NUEVA */
 
 .ruleta-area{
     width:45%;
     text-align:center;
 }
 
-/* SELECTOR */
-
-.selector-box{
-    width:420px;
-    margin:auto;
+.cajas-container{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
+    grid-template-columns:repeat(2,170px);
+    gap:25px;
+    justify-content:center;
+    margin:auto;
 }
 
-/* CAJAS */
-
 .caja{
-    background:#17172a;
-    border:2px solid rgba(255,255,255,0.08);
-    height:120px;
-    border-radius:20px;
+    height:170px;
+    background:#17172b;
+    border:3px solid #2a2a45;
+    border-radius:22px;
     display:flex;
-    align-items:center;
     justify-content:center;
-    font-size:24px;
+    align-items:center;
+    font-size:26px;
     font-weight:bold;
-    transition:0.2s;
+    transition:0.15s;
     box-shadow:0 0 10px rgba(0,0,0,0.5);
 }
 
-.caja:nth-child(5){
-    grid-column:span 2;
-    width:50%;
-    margin:auto;
-}
-
-.activa{
+.caja.activa{
     background:linear-gradient(45deg,#ff9800,#ff5722);
+    border-color:#ff9800;
     color:white;
-    transform:scale(1.05);
+    transform:scale(1.08);
     box-shadow:0 0 30px #ff9800;
 }
 
 /* INPUT */
 
 input{
-    margin-top:30px;
+    margin-top:35px;
     width:280px;
     padding:14px;
     border:none;
@@ -278,12 +269,21 @@ footer{
         width:100%;
     }
 
-    .selector-box{
-        width:100%;
-    }
-
     .grid{
         grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:700px){
+
+    .cajas-container{
+        grid-template-columns:repeat(2,130px);
+    }
+
+    .caja{
+        height:130px;
+        font-size:22px;
     }
 
 }
@@ -345,7 +345,7 @@ footer{
         <h2>¿Cómo funciona?</h2>
 
         <p>
-            Cada caja dentro del sistema está identificada mediante una numeración específica del 1 al 5.
+            Cada caja dentro del sistema está identificada mediante una numeración específica del 1 al 4.
             Sin embargo, el contenido exacto de cada una permanece oculto hasta el momento de la asignación final.
         </p>
 
@@ -363,17 +363,16 @@ footer{
 
     </div>
 
-    <!-- RULETA -->
+    <!-- RULETA NUEVA -->
 
     <div class="ruleta-area">
 
-        <div class="selector-box">
+        <div class="cajas-container">
 
-            <div class="caja">Caja 1</div>
-            <div class="caja">Caja 2</div>
-            <div class="caja">Caja 3</div>
-            <div class="caja">Caja 4</div>
-            <div class="caja">Caja 5</div>
+            <div class="caja" id="caja1">Caja 1</div>
+            <div class="caja" id="caja2">Caja 2</div>
+            <div class="caja" id="caja3">Caja 3</div>
+            <div class="caja" id="caja4">Caja 4</div>
 
         </div>
 
@@ -407,32 +406,32 @@ footer{
         <div class="item">
             <img src="belle1.jpeg">
             <p>
-                * paquete de ligas <br><br>
-                * pinza de cabello <br><br>
-                * gloss <br><br>
-                * gomita para maquillaje <br><br>
-                * rasuradora de cejas <br><br>
-                * rizador de pestañas
+                *paquete de ligas <br><br>
+                *pinza de cabello <br><br>
+                *gloss <br><br>
+                *gomita para maquillaje <br><br>
+                *rasuradora de cejas <br><br>
+                *rizador de pestañas
             </p>
         </div>
 
         <div class="item">
             <img src="belle2.jpeg">
             <p>
-                * delineador <br><br>
-                * gloss <br><br>
-                * diadema para cabello
+                *delineador <br><br>
+                *gloss <br><br>
+                *diadema para cabello
             </p>
         </div>
 
         <div class="item">
             <img src="belle3.jpeg">
-            <p>* plancha de cabello</p>
+            <p>*plancha de cabello</p>
         </div>
 
         <div class="item">
             <img src="belle4.jpeg">
-            <p>* secadora de cabello</p>
+            <p>*secadora de cabello</p>
         </div>
 
     </div>
@@ -458,36 +457,41 @@ function girar(){
     const resultado = document.getElementById("resultado");
     const boton = document.getElementById("boton");
 
-    resultado.innerHTML = "Seleccionando caja...";
+    let vueltas = 20;
+    let actual = 0;
 
-    let vueltas = 0;
+    const final = Math.floor(Math.random() * 4) + 1;
 
-    const final = Math.floor(Math.random() * 5);
+    resultado.innerHTML = "Asignando caja...";
 
-    const intervalo = setInterval(() => {
+    const intervalo = setInterval(()=>{
 
         cajas.forEach(c => c.classList.remove("activa"));
 
-        cajas[vueltas % 5].classList.add("activa");
+        actual++;
 
-        vueltas++;
+        let cajaActual = ((actual - 1) % 4) + 1;
 
-        if(vueltas > 20 + final){
+        document
+        .getElementById("caja" + cajaActual)
+        .classList.add("activa");
+
+        if(actual >= vueltas + final){
 
             clearInterval(intervalo);
 
             cajas.forEach(c => c.classList.remove("activa"));
 
-            cajas[final].classList.add("activa");
+            document
+            .getElementById("caja" + final)
+            .classList.add("activa");
 
-            resultadoFinal = "Caja " + (final + 1);
+            resultadoFinal = "Caja " + final;
 
-            resultado.innerHTML =
-            "Te tocó: " + resultadoFinal;
+            resultado.innerHTML = "Te tocó: " + resultadoFinal;
 
             boton.innerHTML = "Enviar pedido";
             boton.onclick = enviar;
-
         }
 
     },120);
